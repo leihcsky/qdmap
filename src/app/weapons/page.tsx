@@ -12,11 +12,22 @@ export const metadata: Metadata = {
   title: "Queen's Domain Weapons & Throwing Guide",
   description:
     "Queen's Domain melee evolution paths and throwing weapon roles: Endu, Rusted Spear, Chakram, Occult Knife, and more — where to find them and how to use them.",
+  alternates: {
+    canonical: "/weapons",
+  },
   openGraph: {
     title: "Queen's Domain Weapons & Throwing Guide",
     description:
       "Look up melee evolutions and compare throwing weapons by role for Queen's Domain.",
+    url: "/weapons",
+    type: "website",
     images: [{ url: "/og-placeholder.svg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Queen's Domain Weapons & Throwing Guide",
+    description:
+      "Melee evolution paths and throwing weapon roles for Queen's Domain.",
   },
 };
 

@@ -1,11 +1,16 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://queensdomainmap.click";
   return [
-    { url: `${base}/map`, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     {
-      url: `${base}/weapons`,
+      url: `${SITE_URL}/map`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${SITE_URL}/weapons`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
