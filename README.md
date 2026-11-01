@@ -3,7 +3,7 @@
 English community tool site for **Queen's Domain** (Steam game): interactive map + weapons/throwing reference.
 
 - Brand / titles: **Queen's Domain Map**
-- Routes: `/` → `/map`, plus `/weapons`
+- Routes: `/` is the interactive map (homepage); `/map` 301 → `/`; plus `/weapons`
 - Stack: Next.js App Router, TypeScript, Tailwind CSS
 - Data: local JSON only (no auth, CMS, or database)
 
@@ -20,7 +20,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) (redirects to `/map`).
+Open [http://localhost:3000](http://localhost:3000) for the map homepage.
 
 ## Edit map markers
 
@@ -68,6 +68,6 @@ Source of truth: [`data/weapons.json`](data/weapons.json).
 
 ## Scope (MVP)
 
-Shipped: `/map`, `/weapons`, local checklist, SEO metadata, sitemap, robots, disclaimer footer.
+Shipped: `/` (map), `/weapons`, local checklist, SEO metadata, sitemap, robots, disclaimer footer.
 
 Not in scope: accounts, cloud sync, CMS, blog homepage, Chinese locale, Steam live APIs.

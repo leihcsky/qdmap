@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/map", label: "Map" },
+  { href: "/", label: "Map" },
   { href: "/weapons", label: "Weapons" },
 ] as const;
 
@@ -14,7 +14,7 @@ export function SiteHeader() {
   return (
     <header className="border-b border-stone-700/80 bg-[#0c0a09]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/map" className="group flex min-w-0 items-center gap-3">
+        <Link href="/" className="group flex min-w-0 items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/logo-mark.svg"
@@ -35,7 +35,9 @@ export function SiteHeader() {
         <nav className="flex shrink-0 gap-1" aria-label="Primary" data-analytics="nav">
           {links.map((link) => {
             const active =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
+              link.href === "/"
+                ? pathname === "/"
+                : pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <Link
                 key={link.href}

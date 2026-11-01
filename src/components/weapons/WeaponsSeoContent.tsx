@@ -175,7 +175,7 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
           <p className="mt-2 text-sm text-stone-400">
             Pair this guide with the{" "}
             <Link
-              href="/map"
+              href="/"
               className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
             >
               interactive map

@@ -7,19 +7,22 @@ import {
   weaponFaqs,
 } from "@/components/weapons/WeaponsSeoContent";
 import { weaponsData } from "@/lib/data";
+import { SITE_URL } from "@/lib/site";
+
+const WEAPONS_URL = `${SITE_URL}/weapons`;
 
 export const metadata: Metadata = {
   title: "Queen's Domain Weapons & Throwing Guide",
   description:
     "Queen's Domain melee evolution paths and throwing weapon roles: Endu, Rusted Spear, Chakram, Occult Knife, and more — where to find them and how to use them.",
   alternates: {
-    canonical: "/weapons",
+    canonical: WEAPONS_URL,
   },
   openGraph: {
     title: "Queen's Domain Weapons & Throwing Guide",
     description:
       "Look up melee evolutions and compare throwing weapons by role for Queen's Domain.",
-    url: "/weapons",
+    url: WEAPONS_URL,
     type: "website",
     images: [{ url: "/og-placeholder.svg", width: 1200, height: 630 }],
   },
