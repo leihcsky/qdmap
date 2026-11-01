@@ -7,6 +7,12 @@ English community tool site for **Queen's Domain** (Steam game): interactive map
 - Stack: Next.js App Router, TypeScript, Tailwind CSS
 - Data: local JSON only (no auth, CMS, or database)
 
+## Brand assets
+
+- Mark / favicon source: `public/brand/logo-mark.svg`
+- Horizontal lockup: `public/brand/logo.svg`
+- App icons: `src/app/favicon.ico`, `src/app/icon.png`, `src/app/apple-icon.png`
+
 ## Quick start
 
 ```bash

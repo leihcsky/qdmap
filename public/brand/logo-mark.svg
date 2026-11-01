@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Queen's Domain Map">
+  <rect width="64" height="64" rx="14" fill="#0C0A09"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" stroke="#57534E" stroke-width="1.5"/>
+  <!-- crown -->
+  <path d="M22 18 L26 26 L32 16 L38 26 L42 18 L40 28 H24 Z" fill="#E8C47A"/>
+  <circle cx="22" cy="17" r="2" fill="#F5E6C0"/>
+  <circle cx="32" cy="14.5" r="2.2" fill="#F5E6C0"/>
+  <circle cx="42" cy="17" r="2" fill="#F5E6C0"/>
+  <!-- crystal monument / map pin body -->
+  <path d="M32 26 L42 36 L32 54 L22 36 Z" fill="#D6B57A"/>
+  <path d="M32 26 L42 36 L32 42 Z" fill="#F0D9A0"/>
+  <path d="M32 26 L22 36 L32 42 Z" fill="#B8955A"/>
+  <!-- inner facet -->
+  <path d="M32 30 L36 36 L32 40 L28 36 Z" fill="#0C0A09" opacity="0.35"/>
+</svg>
