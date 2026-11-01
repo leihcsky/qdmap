@@ -1,0 +1,83 @@
+import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { faqJsonLd } from "@/components/PageFaq";
+import { WeaponsGuide } from "@/components/weapons/WeaponsGuide";
+import {
+  WeaponsSeoContent,
+  weaponFaqs,
+} from "@/components/weapons/WeaponsSeoContent";
+import { weaponsData } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Queen's Domain Weapons & Throwing Guide",
+  description:
+    "Queen's Domain melee evolution paths and throwing weapon roles: Endu, Rusted Spear, Chakram, Occult Knife, and more — where to find them and how to use them.",
+  openGraph: {
+    title: "Queen's Domain Weapons & Throwing Guide",
+    description:
+      "Look up melee evolutions and compare throwing weapons by role for Queen's Domain.",
+    images: [{ url: "/og-placeholder.svg", width: 1200, height: 630 }],
+  },
+};
+
+export default function WeaponsPage() {
+  return (
+    <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Queen's Domain Weapons & Throwing Guide",
+          description:
+            "Melee evolution and throwing weapon reference for Queen's Domain (Steam game).",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "Queen's Domain Map",
+          },
+          about: "Queen's Domain (Steam game)",
+        }}
+      />
+      <JsonLd data={faqJsonLd(weaponFaqs)} />
+
+      <header className="border-b border-stone-800 px-4 py-6 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-xs uppercase tracking-[0.2em] text-stone-500">
+            Queen&apos;s Domain (Steam game) · Community tool
+          </p>
+          <h1 className="mt-2 font-display text-3xl text-amber-50 sm:text-4xl">
+            Queen&apos;s Domain Weapons &amp; Throwing Guide
+          </h1>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-stone-400 sm:text-base">
+            See what your melee weapon evolves into, where key arms are found, and
+            which throwables fit trash clears versus boss checks — then pack the
+            right three before you push the next door.
+          </p>
+          <p className="mt-3 flex flex-wrap gap-3 text-sm">
+            <a
+              href="#melee-evolution"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            >
+              Melee evolution
+            </a>
+            <a
+              href="#throwing-weapons"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            >
+              Throwing weapons
+            </a>
+          </p>
+        </div>
+      </header>
+
+      <WeaponsGuide
+        melee={weaponsData.meleeEvolution}
+        throwing={weaponsData.throwing}
+      />
+
+      <WeaponsSeoContent
+        melee={weaponsData.meleeEvolution}
+        throwing={weaponsData.throwing}
+      />
+    </>
+  );
+}

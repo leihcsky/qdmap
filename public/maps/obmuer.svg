@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-label="Obmuer Temple map">
+  <defs>
+    <linearGradient id="deep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c1220"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#deep)"/>
+  <rect x="280" y="220" width="1040" height="760" rx="24" fill="url(#stone)" stroke="#64748b" stroke-width="3" opacity="0.9"/>
+  <rect x="480" y="360" width="640" height="420" rx="12" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <path d="M800 360 V220 M800 780 V980 M480 560 H280 M1120 560 H1320" stroke="#94a3b8" stroke-width="6" opacity="0.35"/>
+  <circle cx="520" cy="740" r="16" fill="#1e3a5f" stroke="#60a5fa" stroke-width="2" opacity="0.55"/>
+  <circle cx="760" cy="560" r="16" fill="#1e3a5f" stroke="#60a5fa" stroke-width="2" opacity="0.55"/>
+  <circle cx="980" cy="480" r="16" fill="#1e3a5f" stroke="#60a5fa" stroke-width="2" opacity="0.55"/>
+  <text x="80" y="80" fill="#a8a29e" font-family="Georgia, serif" font-size="36">Obmuer Temple</text>
+  <text x="80" y="120" fill="#78716c" font-family="sans-serif" font-size="18">Overview map - use pins and How to find notes for directions</text>
+</svg>

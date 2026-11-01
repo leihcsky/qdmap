@@ -1,0 +1,216 @@
+{
+  "meleeEvolution": [
+    {
+      "id": "rusted-short-sword",
+      "name": "Rusted Short Sword",
+      "tier": 1,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Starter sword from Commander Ekonta. Slash attacks with a forward-dash secondary. A safe early default while you look for upgrades.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "rusted-spear",
+      "name": "Rusted Spear",
+      "tier": 1,
+      "evolvesTo": "jigeki-serpent-thrust",
+      "materials": ["Reach Level 10 by fighting with this weapon"],
+      "notes": "Fast pierce spear found in the ruined tower near Knight's Encampment. Strong early reach choice; the secondary stab includes a backward dash.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "jigeki-serpent-thrust",
+      "name": "Jigeki's Serpent Thrust",
+      "tier": 2,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Evolved form of the Rusted Spear. Builds a green eye meter while attacking; a full charge enables a poison strike that briefly stuns.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "holy-sword-endu",
+      "name": "Holy Sword Endu",
+      "tier": 1,
+      "evolvesTo": "soul-bound-endu",
+      "materials": ["Reach Level 10 by fighting with this weapon"],
+      "notes": "Recovered at Endu Shrine after the first boss. Slash kit with an air-dash secondary; Wind Gems add dashes, and the Storm Gem unlocks an ultimate.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "soul-bound-endu",
+      "name": "Soul Bound Endu",
+      "tier": 2,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Evolved Endu form. Keeps the dash fantasy with stronger baseline power once the sword has been leveled through combat.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "wooden-club",
+      "name": "Wooden Club",
+      "tier": 1,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Slow impact club from a chest in the Isle of Neasied underground dungeon. Secondary is a leaping smash for committing to a hit.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "trident",
+      "name": "Trident",
+      "tier": 1,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Pierce weapon mounted on a wall just outside the Obmuer Temple entrance. Useful pickup when you first arrive at that region.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "engraved-halberd",
+      "name": "Engraved Halberd",
+      "tier": 1,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Pierce/slash halberd in an Obmuer Temple chest behind the gate that needs three Trident Keys. Worth planning a trip once those keys are online.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "splash-hammer",
+      "name": "Splash Hammer",
+      "tier": 1,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Heavy impact hammer from an Obmuer Temple chest. Charges an AOE smash on the secondary when its meter is full.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "azure-torch",
+      "name": "Azure Torch",
+      "tier": 1,
+      "evolvesTo": null,
+      "materials": [],
+      "notes": "Utility weapon from a gargoyle at the Tower of Knowledge entrance. Lights the way, fuels Azure Flame fireballs, and can light gargoyle statues for the tower door puzzle.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    }
+  ],
+  "throwing": [
+    {
+      "id": "throwing-dagger",
+      "name": "Throwing Dagger",
+      "charges": null,
+      "rechargeNote": "Recharges over time while equipped; shop sells extra charges after you unlock it",
+      "bestFor": ["general", "clear_trash"],
+      "notes": "Starter throwable from the Dagger Belt early on Neasied. Fast return, light physical hits. Later can gain an Acid upgrade after the Necronomicon for clearing flesh in the Tower of Knowledge.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "throwing-axe",
+      "name": "Throwing Axe",
+      "charges": null,
+      "rechargeNote": "Recharges over time while equipped; slower return than daggers",
+      "bestFor": ["boss", "general"],
+      "notes": "Heavier slash/impact throw found in a Deimpo Mausoleum chest. Better when you want chunkier single hits than dagger spam.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "chakram",
+      "name": "Chakram",
+      "charges": null,
+      "rechargeNote": "Fast return; recharges while equipped",
+      "bestFor": ["clear_trash", "control"],
+      "notes": "Boomerang-style slash throw from a chest outside Obmuer Temple. Returns after traveling a set distance — good for clipping packs on a path.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "piercing-needle",
+      "name": "Piercing Needle",
+      "charges": null,
+      "rechargeNote": "Fast return; recharges while equipped",
+      "bestFor": ["clear_trash", "control"],
+      "notes": "Pierce throwable that passes through multiple targets. Chest right after the Sacred Cistern in Obmuer Temple.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    },
+    {
+      "id": "occult-knife",
+      "name": "Occult Knife",
+      "charges": null,
+      "rechargeNote": "Slower return; recharges while equipped",
+      "bestFor": ["boss", "general"],
+      "notes": "Homing physical knife from a Tower of Knowledge chest. Strong when you need the throw to finish tracking a moving target.",
+      "sources": [
+        {
+          "label": "TechRaptor — Weapons Guide",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-weapons-guide-locations-and-evolutions"
+        }
+      ]
+    }
+  ]
+}

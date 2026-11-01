@@ -1,0 +1,208 @@
+{
+  "regions": [
+    {
+      "id": "isle-of-neasied",
+      "name": "Isle of Neasied",
+      "mapImage": "/maps/neasied.svg",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "obmuer-temple",
+      "name": "Obmuer Temple",
+      "mapImage": "/maps/obmuer.svg",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "tower-of-knowledge",
+      "name": "Tower of Knowledge",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "coming_soon"
+    },
+    {
+      "id": "mainland",
+      "name": "Mainland",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "coming_soon"
+    }
+  ],
+  "pois": [
+    {
+      "id": "cm-knights-encampment",
+      "regionId": "isle-of-neasied",
+      "type": "crystal_monument",
+      "name": "Knight's Encampment",
+      "x": 0.38,
+      "y": 0.72,
+      "summary": "Early Crystal Monument — save and rest point near the starting knight camp.",
+      "howToFind": "From the beach landing, face west and smash the wooden barricade (many hits). The monument sits just beyond it at the knight camp fork.",
+      "tips": "Resting fully heals you but respawns nearby enemies. Saving does not respawn enemies. Save often — there are no auto-checkpoints.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "TechRaptor — Isle of Neasied Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-isle-of-neasied-walkthrough"
+        },
+        {
+          "label": "TechRaptor — Beginner Tips",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-guide-beginner-tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "id": "cm-cemetery-precipice",
+      "regionId": "isle-of-neasied",
+      "type": "crystal_monument",
+      "name": "Cemetery Precipice",
+      "x": 0.55,
+      "y": 0.42,
+      "summary": "Cliffside Crystal Monument overlooking the island cemetery paths.",
+      "howToFind": "From the knight camp area, climb northeast up the hill. Look for a blue glow along the precipice — that is the Cemetery Precipice monument.",
+      "tips": "Useful hub before the mausoleum routes and Wind Crystal side paths. Save before risky dashes and lizard fights nearby.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "TechRaptor — Isle of Neasied Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-isle-of-neasied-walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "lm-deimpo-mausoleum",
+      "regionId": "isle-of-neasied",
+      "type": "landmark",
+      "name": "Deimpo Mausoleum (front)",
+      "x": 0.68,
+      "y": 0.48,
+      "summary": "Locked mausoleum landmark east of Cemetery Precipice; key story item route.",
+      "howToFind": "From Cemetery Precipice, head east past tombstones and Star Lizard ground. The locked mausoleum front sits on that raised cemetery road.",
+      "tips": "Clear lizards carefully before engaging near the door. Notes nearby mention a book delivered here by mainland knights.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "TechRaptor — Isle of Neasied Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-isle-of-neasied-walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "lm-endu-shrine",
+      "regionId": "isle-of-neasied",
+      "type": "landmark",
+      "name": "Endu Shrine",
+      "x": 0.44,
+      "y": 0.58,
+      "summary": "Fenced shrine holding the Shrine Guardian fight and the Holy Sword Endu path.",
+      "howToFind": "Near the starting coast / dagger-belt beach islands. Look for a small gated compound; the Endu Shrine Gate Key opens it. Boss waits inside.",
+      "tips": "Prepare before entering — the fight starts once you go in. A longer-reach weapon helps keep distance from the overhead slam.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "TechRaptor — Isle of Neasied Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-isle-of-neasied-walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "wa-neasied",
+      "regionId": "isle-of-neasied",
+      "type": "wing_altar",
+      "name": "Wing Altar (Isle of Neasied)",
+      "x": 0.48,
+      "y": 0.35,
+      "summary": "Isle of Neasied Wing Altar — unlocks fast travel to other altars you have found.",
+      "howToFind": "Search the island after major paths open; each zone typically hides one Wing Altar. Look for the altar structure once you are past the early barricade and shrine routes.",
+      "tips": "A Wing Stone Fragment can warp you to a discovered altar from elsewhere (consumable). Save it for emergencies, not routine travel.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "TechRaptor — Beginner Tips (Fast Travel)",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-guide-beginner-tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "id": "cm-cave-entrance-obmuer",
+      "regionId": "obmuer-temple",
+      "type": "crystal_monument",
+      "name": "Cave Entrance Obmuer Temple",
+      "x": 0.32,
+      "y": 0.62,
+      "summary": "Crystal Monument just inside the Obmuer Temple cave entrance door.",
+      "howToFind": "From Aganmi's Camp outside Obmuer Temple, clear the approach, open the cave door, and the monument is immediately inside the entrance.",
+      "tips": "Rest and save before diving into slate / trident-key puzzles deeper in the temple.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "TechRaptor — Obmuer Temple Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "cm-sacred-cistern",
+      "regionId": "obmuer-temple",
+      "type": "crystal_monument",
+      "name": "Sacred Cistern",
+      "x": 0.48,
+      "y": 0.48,
+      "summary": "Mid-temple Crystal Monument at the Sacred Cistern chamber.",
+      "howToFind": "Progress through Obmuer Temple key doors (trident keys). After raising the staircase and unlocking the cistern door, save at Sacred Cistern Obmuer Temple.",
+      "tips": "Later Wind Dash upgrades let you cross the cistern gap. Side levers open return paths to the entrance and cistern.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "TechRaptor — Obmuer Temple Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "cm-prison-corridor-obmuer",
+      "regionId": "obmuer-temple",
+      "type": "crystal_monument",
+      "name": "Prison Corridor Obmuer Temple",
+      "x": 0.62,
+      "y": 0.4,
+      "summary": "Crystal Monument in the daylight-lit prison corridor wing.",
+      "howToFind": "From Sacred Cistern routes, clear ahead and move into the east hallway lit by daylight. The Prison Corridor monument is there.",
+      "tips": "Save before later temple bosses and slate collection loops.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "TechRaptor — Obmuer Temple Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "wa-obmuer",
+      "regionId": "obmuer-temple",
+      "type": "wing_altar",
+      "name": "Wing Altar (Obmuer Temple)",
+      "x": 0.4,
+      "y": 0.28,
+      "summary": "Obmuer Temple Wing Altar for fast travel between discovered altars.",
+      "howToFind": "Search around Aganmi's Camp and the temple approach as you open Obmuer routes. Unlock it before long slate or key loops so you can hop back later.",
+      "tips": "Counts toward Well Travelled together with Crystal Monuments. Pair it with Cave Entrance / Sacred Cistern saves so you rarely run the full temple cold.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "TechRaptor — Beginner Tips (Fast Travel)",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-guide-beginner-tips-and-tricks"
+        },
+        {
+          "label": "TechRaptor — Obmuer Temple Walkthrough",
+          "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
+        }
+      ]
+    }
+  ]
+}
