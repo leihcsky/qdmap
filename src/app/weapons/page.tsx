@@ -62,9 +62,9 @@ export default function WeaponsPage() {
             Queen&apos;s Domain Weapons &amp; Throwing Guide
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-stone-400 sm:text-base">
-            See what your melee weapon evolves into, where key arms are found, and
-            which throwables fit trash clears versus boss checks — then pack the
-            right three before you push the next door.
+            Look up Queen&apos;s Domain weapon evolution paths, see what your current
+            melee weapon becomes at Level 10, find key arms in the world, and compare
+            throwables for trash clears versus boss checks.
           </p>
           <p className="mt-3 flex flex-wrap gap-3 text-sm">
             <a
@@ -72,6 +72,12 @@ export default function WeaponsPage() {
               className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
             >
               Melee evolution
+            </a>
+            <a
+              href="#weapon-evolution"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            >
+              How evolving works
             </a>
             <a
               href="#throwing-weapons"

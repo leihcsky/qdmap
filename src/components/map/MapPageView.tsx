@@ -34,9 +34,9 @@ export function MapPageView() {
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-stone-400 sm:text-base">
             Queen&apos;s Domain has no in-game map. Find Crystal Monuments, Wing
-            Altars, and key landmarks on Isle of Neasied and Obmuer Temple, follow
-            How to find directions, and track what you have already activated for
-            Well Travelled.
+            Altars for fast travel, and landmarks such as Endu Shrine, Deimpo
+            Mausoleum, and Obmuer Temple save points. Follow How to find directions,
+            then track what you have already activated for Well Travelled.
           </p>
           <p className="mt-3 text-xs text-stone-500 lg:hidden">
             On phone: open a marker from the list first, then read How to find.

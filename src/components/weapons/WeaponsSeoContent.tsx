@@ -4,9 +4,19 @@ import type { MeleeWeapon, ThrowingWeapon } from "@/lib/types";
 
 const WEAPON_FAQS: FaqItem[] = [
   {
-    question: "How do weapon evolutions work?",
+    question: "How do you evolve weapons in Queen's Domain?",
     answer:
-      "Most weapons level as you land hits. Each level adds a small damage bonus, up to a cap. When a weapon that can evolve hits Level 10, it can change into a new form with a stronger kit. If a weapon shows MAX, it will not evolve further.",
+      "Fight with the weapon so it gains levels from successful hits. Each level adds a small damage bonus up to a cap. When an evolvable weapon reaches Level 10, you can evolve it into a new form. If the weapon shows MAX, it will not evolve further.",
+  },
+  {
+    question: "What are the early weapon evolution paths?",
+    answer:
+      "Two early lines are especially useful: Rusted Spear evolves into Jigeki's Serpent Thrust, and Holy Sword Endu evolves into Soul Bound Endu. Level each base weapon in combat to 10 before evolving.",
+  },
+  {
+    question: "Does every Queen's Domain weapon evolve?",
+    answer:
+      "No. Many arms are complete as-is. Use the evolution panel above: if Evolves to says it does not evolve further, keep the weapon for its moveset rather than waiting on a fake next tier.",
   },
   {
     question: "How many weapons can I equip?",
@@ -43,6 +53,43 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
   return (
     <div className="border-t border-stone-800 bg-[#0a0908]/80">
       <div className="mx-auto max-w-5xl space-y-14 px-4 py-12 sm:px-6">
+        <section aria-labelledby="weapon-evolution" className="scroll-mt-8">
+          <h2 id="weapon-evolution" className="font-display text-2xl text-amber-50">
+            Queen&apos;s Domain weapon evolution
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-relaxed text-stone-400">
+            <p>
+              Weapon evolution is one of the first power spikes players look up.
+              In Queen&apos;s Domain you do not craft a random upgrade tree with
+              mystery materials for every blade — you{" "}
+              <strong className="font-medium text-stone-200">
+                level the weapon by using it
+              </strong>
+              , then evolve when it hits Level 10 (if that line can evolve).
+            </p>
+            <ol className="list-decimal space-y-2 pl-5 text-stone-300">
+              <li>Equip the weapon you want to grow and land hits in real fights.</li>
+              <li>
+                Watch the weapon level climb; each level adds a small damage bonus
+                until the bonus cap.
+              </li>
+              <li>
+                At Level 10, evolve into the next form when the game offers it. The
+                new weapon often keeps a related fantasy with a stronger kit.
+              </li>
+              <li>
+                If a weapon is marked MAX, stop farming it for evolution — it has
+                nowhere else to go.
+              </li>
+            </ol>
+            <p>
+              Use the melee panel above to select your current weapon and see the
+              next form instantly. That is the same answer players search for with
+              phrases like &quot;weapon evolution&quot; or &quot;evolve weapons.&quot;
+            </p>
+          </div>
+        </section>
+
         <section aria-labelledby="how-weapons-work" className="scroll-mt-8">
           <h2 id="how-weapons-work" className="font-display text-2xl text-amber-50">
             How weapons work in Queen&apos;s Domain
@@ -55,15 +102,11 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
               so swapping the right weapon matters as much as raw power.
             </p>
             <p>
-              Weapons grow through use. Successful hits raise the weapon level and
-              add bonus damage, up to a maximum bonus. Many lines can evolve at
-              Level 10 into a new weapon with a sharper moveset. That is what the
-              evolution panel above is for: pick what you are holding, see what it
-              becomes, and decide whether to keep leveling it.
-            </p>
-            <p>
               Loot chests and world pickups cover most finds; Umbawa the Merchant
-              sells additional arms as you progress and clear bosses.
+              sells additional arms as you progress and clear bosses. You can keep
+              three melee weapons equipped at once, which makes it realistic to level
+              an evolution candidate while still carrying a utility option such as
+              Azure Torch.
             </p>
           </div>
         </section>
@@ -94,6 +137,17 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
               );
             })}
           </ul>
+          <div className="mt-5 rounded-lg border border-stone-800 bg-stone-950/40 px-4 py-4 text-sm text-stone-400">
+            <h3 className="font-medium text-stone-200">Early-game priority</h3>
+            <p className="mt-2">
+              On Isle of Neasied, pick up the{" "}
+              <span className="text-stone-200">Rusted Spear</span> near Knight&apos;s
+              Encampment for reach, then recover{" "}
+              <span className="text-stone-200">Holy Sword Endu</span> from Endu Shrine.
+              Level the one you actually fight with — splitting kills across too many
+              weapons slows every evolution.
+            </p>
+          </div>
         </section>
 
         <section aria-labelledby="throwing-guide" className="scroll-mt-8">
@@ -114,12 +168,18 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
                 flesh.
               </li>
               <li>
-                <strong className="font-medium text-stone-200">Chakram / Piercing Needle</strong> —
-                better when you need return paths or multi-target pierce.
+                <strong className="font-medium text-stone-200">
+                  Chakram / Piercing Needle
+                </strong>{" "}
+                — better when you need return paths or multi-target pierce. Chakram
+                sits outside Obmuer Temple; Piercing Needle drops after Sacred Cistern.
               </li>
               <li>
-                <strong className="font-medium text-stone-200">Throwing Axe / Occult Knife</strong> —
-                heavier or homing tools when a single target needs to die now.
+                <strong className="font-medium text-stone-200">
+                  Throwing Axe / Occult Knife
+                </strong>{" "}
+                — heavier or homing tools when a single target needs to die now.
+                Throwing Axe ties to Deimpo Mausoleum loot.
               </li>
             </ul>
             <p>
@@ -170,7 +230,7 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
           className="rounded-lg border border-stone-800 bg-stone-950/40 px-4 py-5"
         >
           <h2 id="weapons-related" className="font-display text-xl text-amber-50">
-            Need locations?
+            Need locations on the map?
           </h2>
           <p className="mt-2 text-sm text-stone-400">
             Pair this guide with the{" "}
@@ -178,10 +238,10 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
               href="/"
               className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
             >
-              interactive map
+              Queen&apos;s Domain interactive map
             </Link>{" "}
-            for Endu Shrine, Deimpo Mausoleum, Sacred Cistern, and other landmarks
-            called out above.
+            for Endu Shrine, Deimpo Mausoleum, Obmuer Temple save points, and Wing
+            Altar fast travel pins.
           </p>
         </section>
 

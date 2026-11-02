@@ -7,12 +7,27 @@ const MAP_FAQS: FaqItem[] = [
   {
     question: "Does Queen's Domain have an in-game map?",
     answer:
-      "No. There is no full world map or quest marker trail. You navigate with landmarks, compass direction, and memory. This page lists the Crystal Monuments, Wing Altars, and named places that keep you oriented while you explore.",
+      "No. There is no full world map or quest marker trail. You navigate with landmarks, compass direction, and memory. This Queen's Domain map lists Crystal Monuments, Wing Altars, and named places so you can keep your bearings while you explore.",
+  },
+  {
+    question: "How does fast travel work?",
+    answer:
+      "Discover Wing Altars in each zone to unlock travel between them. For emergencies, items such as a Travel Crystal Fragment can return you toward a recent Crystal Monument, and a Wing Stone Fragment can send you to a discovered altar. Treat those consumables as limited tools, not everyday shortcuts.",
+  },
+  {
+    question: "Where is Obmuer Temple on this map?",
+    answer:
+      "Switch the region tab to Obmuer Temple. Start from Aganmi's Camp after leaving Isle of Neasied, then use Cave Entrance, Sacred Cistern, and Prison Corridor Crystal Monuments as save hubs while you collect Triangular Slates and Trident Keys.",
+  },
+  {
+    question: "How do I find Deimpo Mausoleum?",
+    answer:
+      "On Isle of Neasied, save at Cemetery Precipice, then head east along the cemetery road past Star Lizard ground. The locked Deimpo Mausoleum front sits on that raised path. Open the landmark pin above for the full How to find note.",
   },
   {
     question: "What should I look for first as a new player?",
     answer:
-      "Crystal Monuments first — they are your save and rest points. Add Wing Altars when you want fast travel between zones. Use Landmarks when you need a named place such as Endu Shrine or Deimpo Mausoleum.",
+      "Crystal Monuments first — they are your save and rest points. Add Wing Altars when you want fast travel between zones. Use landmarks such as Endu Shrine or Deimpo Mausoleum when a route calls out a named place.",
   },
   {
     question: "What does Mark as found do?",
@@ -23,16 +38,6 @@ const MAP_FAQS: FaqItem[] = [
     question: "What is the Well Travelled checklist?",
     answer:
       "It tracks how many Crystal Monuments and Wing Altars from this guide you have marked as found. Handy while you hunt the exploration achievement — always double-check the final count against your own Steam progress.",
-  },
-  {
-    question: "Which regions are covered?",
-    answer:
-      "Isle of Neasied and Obmuer Temple are fully listed here. Those are the early areas most players need first: starter island save points, Endu Shrine, then the sunken temple monuments.",
-  },
-  {
-    question: "Should I trust the pin positions or the written directions?",
-    answer:
-      "Use both, but lean on How to find when you are in doubt. Written cues (barricades, cliffs, daylight halls) stay useful even if a pin sits a little off on the overview art.",
   },
 ];
 
@@ -45,16 +50,18 @@ type MapSeoContentProps = {
 
 export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
   const liveRegions = regions.filter((r) => r.status === "live");
-  const typesPresent = (
-    Object.keys(POI_TYPE_META) as PoiType[]
-  ).filter((type) => pois.some((p) => p.type === type));
+  const typesPresent = (Object.keys(POI_TYPE_META) as PoiType[]).filter(
+    (type) => pois.some((p) => p.type === type),
+  );
+
+  const byId = (id: string) => pois.find((p) => p.id === id);
 
   return (
     <div className="border-t border-stone-800 bg-[#0a0908]/80">
       <div className="mx-auto max-w-5xl space-y-14 px-4 py-12 sm:px-6">
         <section aria-labelledby="how-to-use-map" className="scroll-mt-8">
           <h2 id="how-to-use-map" className="font-display text-2xl text-amber-50">
-            How to use this map
+            How to use this Queen&apos;s Domain map
           </h2>
           <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-relaxed text-stone-300">
             <li>
@@ -96,11 +103,116 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
               Save after big objectives; rest when you can afford to fight the path
               again.
             </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="fast-travel" className="scroll-mt-8">
+          <h2 id="fast-travel" className="font-display text-2xl text-amber-50">
+            Queen&apos;s Domain fast travel
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-relaxed text-stone-400">
             <p>
-              <strong className="font-medium text-stone-200">Fast travel:</strong>{" "}
-              Wing Altars are zone waypoints you unlock by finding them. Items like
-              a Travel Crystal Fragment or Wing Stone Fragment can pull you back in
-              an emergency — spend those carefully rather than as routine shortcuts.
+              Fast travel in Queen&apos;s Domain is discovery-based, not a menu of
+              every location from the start. The core loop:
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong className="font-medium text-stone-200">Wing Altars</strong> —
+                find one per zone (Isle of Neasied and Obmuer Temple are listed on
+                this map). Once discovered, you can travel between altars you already
+                know.
+              </li>
+              <li>
+                <strong className="font-medium text-stone-200">
+                  Travel Crystal Fragment
+                </strong>{" "}
+                — emergency return toward the last Crystal Monument you used. Save it
+                for long death runs, not casual backtracking.
+              </li>
+              <li>
+                <strong className="font-medium text-stone-200">Wing Stone Fragment</strong>{" "}
+                — consumable warp to a discovered Wing Altar from farther away. Same
+                rule: spend it when the walk would cost more than the item.
+              </li>
+            </ul>
+            <p>
+              On this map, filter for{" "}
+              <span className="text-stone-200">Wing Altar</span> to see the Neasied
+              and Obmuer altar pins, then mark them as found after you activate each
+              one.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="obmuer-guide" className="scroll-mt-8">
+          <h2 id="obmuer-guide" className="font-display text-2xl text-amber-50">
+            Obmuer Temple — what to mark first
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-relaxed text-stone-400">
+            <p>
+              Obmuer Temple is the sunken follow-up to Isle of Neasied. After you
+              cross from the starter island, talk with Aganmi at camp, then treat the
+              temple as a save-point chain rather than one long uninterruptible run.
+            </p>
+            <ol className="list-decimal space-y-3 pl-5 text-stone-300">
+              <li>
+                <strong className="font-medium text-stone-100">
+                  {byId("cm-cave-entrance-obmuer")?.name ?? "Cave Entrance Obmuer Temple"}
+                </strong>{" "}
+                — first Crystal Monument inside the cave door. Rest and save before
+                slate and key puzzles.
+              </li>
+              <li>
+                <strong className="font-medium text-stone-100">
+                  {byId("cm-sacred-cistern")?.name ?? "Sacred Cistern"}
+                </strong>{" "}
+                — mid-temple hub after Trident Key doors. Later Wind Dash upgrades
+                help cross the cistern gap.
+              </li>
+              <li>
+                <strong className="font-medium text-stone-100">
+                  {byId("cm-prison-corridor-obmuer")?.name ??
+                    "Prison Corridor Obmuer Temple"}
+                </strong>{" "}
+                — daylight hallway save before deeper boss and slate loops.
+              </li>
+              <li>
+                <strong className="font-medium text-stone-100">
+                  {byId("wa-obmuer")?.name ?? "Wing Altar (Obmuer Temple)"}
+                </strong>{" "}
+                — unlock zone fast travel so you are not forced to walk the full
+                approach every time.
+              </li>
+            </ol>
+            <p>
+              Switch the region tab to Obmuer Temple above, then open each pin for
+              How to find directions tied to keys, levers, and daylight corridors.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="deimpo-guide" className="scroll-mt-8">
+          <h2 id="deimpo-guide" className="font-display text-2xl text-amber-50">
+            Deimpo Mausoleum on Isle of Neasied
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-relaxed text-stone-400">
+            <p>
+              Deimpo Mausoleum is a key Isle of Neasied landmark east of the cemetery
+              cliffs. Players often reach it after unlocking{" "}
+              <span className="text-stone-200">Cemetery Precipice</span> as a Crystal
+              Monument hub.
+            </p>
+            <p>
+              From Cemetery Precipice, move east along the raised cemetery road. Clear
+              Star Lizards carefully, then look for the locked mausoleum front — that
+              is the Deimpo Mausoleum pin on this map. The route also ties into later
+              loot such as heavier weapons and throwables found inside or nearby once
+              you can enter.
+            </p>
+            <p>
+              Practical order on Neasied: Knight&apos;s Encampment → Endu Shrine path →
+              Cemetery Precipice → Deimpo Mausoleum front → push toward Obmuer when
+              the bridge / crossing opens.
             </p>
           </div>
         </section>
@@ -222,7 +334,7 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           className="rounded-lg border border-stone-800 bg-stone-950/40 px-4 py-5"
         >
           <h2 id="map-related" className="font-display text-xl text-amber-50">
-            Need loadout help?
+            Need weapon evolution help?
           </h2>
           <p className="mt-2 text-sm text-stone-400">
             After Endu Shrine or when you start packing throwables, open the{" "}
@@ -230,9 +342,9 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
               href="/weapons"
               className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
             >
-              weapons and throwing guide
+              Queen&apos;s Domain weapon evolution guide
             </Link>{" "}
-            for evolution paths and which throwable fits the next fight.
+            for Level 10 evolve paths and which throwable fits the next fight.
           </p>
         </section>
       </div>
@@ -262,7 +374,7 @@ function legendBlurb(type: PoiType): string {
 function regionBlurb(regionId: string): string {
   switch (regionId) {
     case "isle-of-neasied":
-      return "Starter island: smash the western barricade for Knight's Encampment, climb toward Cemetery Precipice, clear Endu Shrine for Holy Sword Endu, then push on toward Obmuer.";
+      return "Starter island: smash the western barricade for Knight's Encampment, climb toward Cemetery Precipice and Deimpo Mausoleum, clear Endu Shrine for Holy Sword Endu, then push on toward Obmuer Temple.";
     case "obmuer-temple":
       return "Sunken temple after Neasied. Cave Entrance, Sacred Cistern, and Prison Corridor monuments break up slate and key puzzles — save before long corridor runs.";
     default:
