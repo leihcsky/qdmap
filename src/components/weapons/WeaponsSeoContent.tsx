@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AdRectangle } from "@/components/ads/AdRectangle";
 import { AdsterraNative } from "@/components/ads/AdsterraNative";
+import { FindOnMapLink } from "@/components/map/FindOnMapLink";
 import { PageFaq, type FaqItem } from "@/components/PageFaq";
 import type { MeleeWeapon, ThrowingWeapon } from "@/lib/types";
 
@@ -38,7 +39,7 @@ const WEAPON_FAQS: FaqItem[] = [
   {
     question: "Where do I find Holy Sword Endu?",
     answer:
-      "Clear the Endu Shrine route on Isle of Neasied and defeat the shrine guardian. Endu can later evolve into Soul Bound Endu once leveled. Use the interactive map if you need landmark directions to the shrine.",
+      "Clear the Endu Shrine route on Isle of Neasied and defeat the shrine guardian. Endu can later evolve into Soul Bound Endu once leveled. Use Find on map next to Endu (or open Endu Shrine on the interactive map) for landmark directions.",
   },
 ];
 
@@ -146,9 +147,18 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
             <p className="mt-2">
               On Isle of Neasied, pick up the{" "}
               <span className="text-stone-200">Rusted Spear</span> near Knight&apos;s
-              Encampment for reach, then recover{" "}
-              <span className="text-stone-200">Holy Sword Endu</span> from Endu Shrine.
-              Level the one you actually fight with — splitting kills across too many
+              Encampment for reach (
+              <FindOnMapLink
+                link={{ region: "isle-of-neasied", poi: "cm-knights-encampment" }}
+                className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+              />
+              ), then recover{" "}
+              <span className="text-stone-200">Holy Sword Endu</span> from Endu Shrine (
+              <FindOnMapLink
+                link={{ region: "isle-of-neasied", poi: "lm-endu-shrine" }}
+                className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+              />
+              ). Level the one you actually fight with — splitting kills across too many
               weapons slows every evolution.
             </p>
           </div>
@@ -178,14 +188,26 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
                   Chakram / Piercing Needle
                 </strong>{" "}
                 — better when you need return paths or multi-target pierce. Chakram
-                sits outside Obmuer Temple; Piercing Needle drops after Sacred Cistern.
+                sits outside Obmuer Temple; Piercing Needle drops after Sacred Cistern.{" "}
+                <FindOnMapLink
+                  link={{ region: "obmuer-temple", poi: "cm-sacred-cistern" }}
+                  label="Find Sacred Cistern"
+                  className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+                />
+                .
               </li>
               <li>
                 <strong className="font-medium text-stone-200">
                   Throwing Axe / Occult Knife
                 </strong>{" "}
                 — heavier or homing tools when a single target needs to die now.
-                Throwing Axe ties to Deimpo Mausoleum loot.
+                Throwing Axe ties to Deimpo Mausoleum loot (
+                <FindOnMapLink
+                  link={{ region: "isle-of-neasied", poi: "lm-deimpo-mausoleum" }}
+                  className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+                />
+                ). Occult Knife is Tower of Knowledge — map pin arrives when that
+                region goes live.
               </li>
             </ul>
             <p>
@@ -207,7 +229,18 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
               <ul className="mt-2 space-y-2 text-sm text-stone-300">
                 {melee.map((w) => (
                   <li key={w.id}>
-                    <span className="font-medium text-stone-100">{w.name}</span>
+                    <span className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                      <a
+                        href={`#weapon-${w.id}`}
+                        className="font-medium text-stone-100 underline-offset-2 hover:text-amber-100 hover:underline"
+                      >
+                        {w.name}
+                      </a>
+                      <FindOnMapLink
+                        link={w.mapLink}
+                        className="text-xs text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+                      />
+                    </span>
                     <span className="mt-0.5 block text-stone-500">{w.notes}</span>
                   </li>
                 ))}
@@ -220,7 +253,18 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
               <ul className="mt-2 space-y-2 text-sm text-stone-300">
                 {throwing.map((t) => (
                   <li key={t.id}>
-                    <span className="font-medium text-stone-100">{t.name}</span>
+                    <span className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                      <a
+                        href={`#weapon-${t.id}`}
+                        className="font-medium text-stone-100 underline-offset-2 hover:text-amber-100 hover:underline"
+                      >
+                        {t.name}
+                      </a>
+                      <FindOnMapLink
+                        link={t.mapLink}
+                        className="text-xs text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+                      />
+                    </span>
                     <span className="mt-0.5 block text-stone-500">{t.notes}</span>
                   </li>
                 ))}
@@ -245,9 +289,56 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
               className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
             >
               Queen&apos;s Domain interactive map
-            </Link>{" "}
-            for Endu Shrine, Deimpo Mausoleum, Obmuer Temple save points, and Wing
-            Altar fast travel pins.
+            </Link>
+            , or jump straight to:{" "}
+            <FindOnMapLink
+              link={{ region: "isle-of-neasied", poi: "lm-endu-shrine" }}
+              label="Endu Shrine"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            />
+            ,{" "}
+            <FindOnMapLink
+              link={{ region: "isle-of-neasied", poi: "lm-deimpo-mausoleum" }}
+              label="Deimpo Mausoleum"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            />
+            ,{" "}
+            <FindOnMapLink
+              link={{ region: "obmuer-temple" }}
+              label="Obmuer Temple"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            />
+            ,{" "}
+            <FindOnMapLink
+              link={{ type: "wing_altar" }}
+              label="Wing Altars"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            />
+            .
+          </p>
+          <p className="mt-3 text-sm text-stone-400">
+            Longer write-ups:{" "}
+            <Link
+              href="/obmuer-temple"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            >
+              Obmuer Temple
+            </Link>
+            ,{" "}
+            <Link
+              href="/deimpo-mausoleum"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            >
+              Deimpo Mausoleum
+            </Link>
+            ,{" "}
+            <Link
+              href="/fast-travel"
+              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            >
+              Fast travel
+            </Link>
+            .
           </p>
         </section>
 

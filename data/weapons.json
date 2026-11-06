@@ -7,6 +7,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Starter sword from Commander Ekonta. Slash attacks with a forward-dash secondary. A safe early default while you look for upgrades.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "cm-knights-encampment" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -21,6 +22,7 @@
       "evolvesTo": "jigeki-serpent-thrust",
       "materials": ["Reach Level 10 by fighting with this weapon"],
       "notes": "Fast pierce spear found in the ruined tower near Knight's Encampment. Strong early reach choice; the secondary stab includes a backward dash.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "cm-knights-encampment" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -35,6 +37,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Evolved form of the Rusted Spear. Builds a green eye meter while attacking; a full charge enables a poison strike that briefly stuns.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "cm-knights-encampment" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -49,6 +52,7 @@
       "evolvesTo": "soul-bound-endu",
       "materials": ["Reach Level 10 by fighting with this weapon"],
       "notes": "Recovered at Endu Shrine after the first boss. Slash kit with an air-dash secondary; Wind Gems add dashes, and the Storm Gem unlocks an ultimate.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "lm-endu-shrine" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -63,6 +67,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Evolved Endu form. Keeps the dash fantasy with stronger baseline power once the sword has been leveled through combat.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "lm-endu-shrine" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -77,6 +82,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Slow impact club from a chest in the Isle of Neasied underground dungeon. Secondary is a leaping smash for committing to a hit.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "cm-cemetery-precipice" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -91,6 +97,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Pierce weapon mounted on a wall just outside the Obmuer Temple entrance. Useful pickup when you first arrive at that region.",
+      "mapLink": { "region": "obmuer-temple", "poi": "cm-cave-entrance-obmuer" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -105,6 +112,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Pierce/slash halberd in an Obmuer Temple chest behind the gate that needs three Trident Keys. Worth planning a trip once those keys are online.",
+      "mapLink": { "region": "obmuer-temple" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -119,6 +127,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Heavy impact hammer from an Obmuer Temple chest. Charges an AOE smash on the secondary when its meter is full.",
+      "mapLink": { "region": "obmuer-temple" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -133,6 +142,7 @@
       "evolvesTo": null,
       "materials": [],
       "notes": "Utility weapon from a gargoyle at the Tower of Knowledge entrance. Lights the way, fuels Azure Flame fireballs, and can light gargoyle statues for the tower door puzzle.",
+      "mapLink": null,
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -149,6 +159,7 @@
       "rechargeNote": "Recharges over time while equipped; shop sells extra charges after you unlock it",
       "bestFor": ["general", "clear_trash"],
       "notes": "Starter throwable from the Dagger Belt early on Neasied. Fast return, light physical hits. Later can gain an Acid upgrade after the Necronomicon for clearing flesh in the Tower of Knowledge.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "cm-knights-encampment" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -163,6 +174,7 @@
       "rechargeNote": "Recharges over time while equipped; slower return than daggers",
       "bestFor": ["boss", "general"],
       "notes": "Heavier slash/impact throw found in a Deimpo Mausoleum chest. Better when you want chunkier single hits than dagger spam.",
+      "mapLink": { "region": "isle-of-neasied", "poi": "lm-deimpo-mausoleum" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -177,6 +189,7 @@
       "rechargeNote": "Fast return; recharges while equipped",
       "bestFor": ["clear_trash", "control"],
       "notes": "Boomerang-style slash throw from a chest outside Obmuer Temple. Returns after traveling a set distance — good for clipping packs on a path.",
+      "mapLink": { "region": "obmuer-temple", "poi": "cm-cave-entrance-obmuer" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -191,6 +204,7 @@
       "rechargeNote": "Fast return; recharges while equipped",
       "bestFor": ["clear_trash", "control"],
       "notes": "Pierce throwable that passes through multiple targets. Chest right after the Sacred Cistern in Obmuer Temple.",
+      "mapLink": { "region": "obmuer-temple", "poi": "cm-sacred-cistern" },
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",
@@ -205,6 +219,7 @@
       "rechargeNote": "Slower return; recharges while equipped",
       "bestFor": ["boss", "general"],
       "notes": "Homing physical knife from a Tower of Knowledge chest. Strong when you need the throw to finish tracking a moving target.",
+      "mapLink": null,
       "sources": [
         {
           "label": "TechRaptor — Weapons Guide",

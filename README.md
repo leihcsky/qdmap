@@ -3,7 +3,7 @@
 English community tool site for **Queen's Domain** (Steam game): interactive map + weapons/throwing reference.
 
 - Brand / titles: **Queen's Domain Map**
-- Routes: `/` is the interactive map (homepage); `/map` 301 → `/`; plus `/weapons`
+- Routes: `/` interactive map (homepage); `/map` 301 → `/`; `/weapons`; location guides `/obmuer-temple`, `/deimpo-mausoleum`, `/fast-travel`
 - Stack: Next.js App Router, TypeScript, Tailwind CSS
 - Data: local JSON only (no auth, CMS, or database)
 
@@ -21,6 +21,36 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) for the map homepage.
+
+## Map deep links
+
+Homepage map accepts shareable query params:
+
+| Param | Example | Effect |
+|---|---|---|
+| `region` | `/?region=obmuer-temple` | Select a live region tab |
+| `poi` | `/?poi=lm-deimpo-mausoleum` | Select region + open that marker detail |
+| `type` | `/?type=wing_altar` | Filter marker types (comma-separated OK) |
+| `q` | `/?q=endu` | Search markers by name |
+
+Examples:
+
+- `/?region=obmuer-temple`
+- `/?poi=lm-deimpo-mausoleum`
+- `/?type=wing_altar`
+- `/?region=isle-of-neasied&type=crystal_monument&q=cemetery`
+
+Helpers live in `src/lib/map-deep-link.ts` (`parseMapDeepLink` / `buildMapDeepLink`).
+
+## Location landing pages
+
+| Path | Opens map with |
+|---|---|
+| `/obmuer-temple` | `/?region=obmuer-temple` |
+| `/deimpo-mausoleum` | `/?poi=lm-deimpo-mausoleum` |
+| `/fast-travel` | `/?type=wing_altar` |
+
+Copy and FAQs live in `src/lib/landings.ts`.
 
 ## Edit map markers
 
@@ -68,6 +98,6 @@ Source of truth: [`data/weapons.json`](data/weapons.json).
 
 ## Scope (MVP)
 
-Shipped: `/` (map), `/weapons`, local checklist, SEO metadata, sitemap, robots, disclaimer footer.
+Shipped: `/` (map), `/weapons`, location landings, deep links, local checklist, SEO metadata, sitemap, robots, disclaimer footer.
 
 Not in scope: accounts, cloud sync, CMS, blog homepage, Chinese locale, Steam live APIs.

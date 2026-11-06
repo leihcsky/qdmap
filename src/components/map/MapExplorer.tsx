@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Poi, PoiType, Region } from "@/lib/types";
 import { ALL_POI_TYPES, POI_TYPE_META } from "@/lib/poi-meta";
+import { buildMapDeepLink, parseMapDeepLink } from "@/lib/map-deep-link";
 import { loadCheckedIds, saveCheckedIds } from "@/lib/storage";
 
 type MapExplorerProps = {
@@ -11,6 +13,8 @@ type MapExplorerProps = {
 };
 
 export function MapExplorer({ regions, pois }: MapExplorerProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const liveRegions = regions.filter((r) => r.status === "live");
   const availableTypes = useMemo(
     () => ALL_POI_TYPES.filter((type) => pois.some((p) => p.type === type)),
@@ -24,6 +28,8 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [hydrated, setHydrated] = useState(false);
+  const skipUrlSync = useRef(false);
+  const deepLinkKey = searchParams.toString();
 
   useEffect(() => {
     setChecked(loadCheckedIds());
@@ -34,6 +40,114 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     if (!hydrated) return;
     saveCheckedIds(checked);
   }, [checked, hydrated]);
+
+  // Apply deep-link params whenever the query string changes.
+  useEffect(() => {
+    const link = parseMapDeepLink(searchParams);
+    const targetPoi = link.poi
+      ? pois.find((p) => p.id === link.poi) ?? null
+      : null;
+
+    skipUrlSync.current = true;
+
+    if (targetPoi) {
+      const live = liveRegions.some((r) => r.id === targetPoi.regionId);
+      if (live) setRegionId(targetPoi.regionId);
+
+      if (link.types?.length) {
+        const next = new Set(link.types);
+        next.add(targetPoi.type);
+        setSelectedTypes(next);
+      } else {
+        setSelectedTypes(new Set(ALL_POI_TYPES));
+      }
+
+      setSelectedId(targetPoi.id);
+    } else {
+      if (link.region && liveRegions.some((r) => r.id === link.region)) {
+        setRegionId(link.region);
+      }
+      if (link.types?.length) {
+        setSelectedTypes(new Set(link.types));
+      }
+      setSelectedId(null);
+    }
+
+    const hasLink = Boolean(
+      link.poi || link.region || link.types?.length || link.q,
+    );
+
+    if (typeof link.q === "string") {
+      setQuery(link.q);
+    } else if (!hasLink) {
+      setQuery("");
+    }
+
+    if (hasLink) {
+      requestAnimationFrame(() => {
+        document
+          .getElementById("map-tool")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    queueMicrotask(() => {
+      skipUrlSync.current = false;
+    });
+    // liveRegions is derived from regions; pois/regions identity is stable from server props
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deepLinkKey, pois, regions]);
+
+  // Keep the address bar shareable — but leave bare `/` clean until the user focuses something.
+  useEffect(() => {
+    if (!hydrated || skipUrlSync.current) return;
+
+    const defaultRegion = liveRegions[0]?.id ?? "";
+    const typesArr = availableTypes.filter((t) => selectedTypes.has(t));
+    const allSelected =
+      typesArr.length === availableTypes.length && availableTypes.length > 0;
+    const interesting =
+      Boolean(selectedId) ||
+      Boolean(query.trim()) ||
+      !allSelected ||
+      (Boolean(regionId) && regionId !== defaultRegion);
+
+    const next = interesting
+      ? buildMapDeepLink({
+          region: regionId || undefined,
+          poi: selectedId ?? undefined,
+          types: allSelected ? undefined : typesArr,
+          q: query.trim() || undefined,
+        })
+      : "/";
+
+    const current = `${window.location.pathname}${window.location.search}`;
+    if (current === next) return;
+
+    router.replace(next, { scroll: false });
+  }, [
+    availableTypes,
+    hydrated,
+    liveRegions,
+    query,
+    regionId,
+    router,
+    selectedId,
+    selectedTypes,
+  ]);
+
+  useEffect(() => {
+    if (!selectedId) return;
+    const timer = window.setTimeout(() => {
+      document
+        .getElementById(`poi-list-${selectedId}`)
+        ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      document
+        .getElementById("map-detail-panel")
+        ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }, 80);
+    return () => window.clearTimeout(timer);
+  }, [selectedId]);
 
   const region = regions.find((r) => r.id === regionId) ?? liveRegions[0];
 
@@ -80,7 +194,10 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   const hasMapArt = Boolean(region?.mapImage);
 
   return (
-    <div className="flex flex-1 flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:gap-0 lg:overflow-hidden lg:px-0 lg:py-0">
+    <div
+      id="map-tool"
+      className="flex flex-1 flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:gap-0 lg:overflow-hidden lg:px-0 lg:py-0"
+    >
       <aside className="flex w-full shrink-0 flex-col gap-4 border-stone-800 lg:w-80 lg:overflow-y-auto lg:border-r lg:p-4">
         <div
           className="rounded-lg border border-violet-900/50 bg-violet-950/30 px-3 py-2"
@@ -186,7 +303,7 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
               const isSelected = selectedId === poi.id;
               const isChecked = checked.has(poi.id);
               return (
-                <li key={poi.id}>
+                <li key={poi.id} id={`poi-list-${poi.id}`}>
                   <button
                     type="button"
                     onClick={() => setSelectedId(poi.id)}
@@ -305,7 +422,10 @@ function DetailPanel({
 }) {
   if (!poi) {
     return (
-      <aside className="w-full shrink-0 border-t border-stone-800 bg-[#0e0c0b] p-4 text-sm text-stone-500 lg:w-80 lg:overflow-y-auto lg:border-l lg:border-t-0">
+      <aside
+        id="map-detail-panel"
+        className="w-full shrink-0 border-t border-stone-800 bg-[#0e0c0b] p-4 text-sm text-stone-500 lg:w-80 lg:overflow-y-auto lg:border-l lg:border-t-0"
+      >
         Select a marker on the list or map to read how to find it.
       </aside>
     );
@@ -315,6 +435,7 @@ function DetailPanel({
 
   return (
     <aside
+      id="map-detail-panel"
       className="w-full shrink-0 border-t border-stone-800 bg-[#0e0c0b] p-4 lg:w-80 lg:overflow-y-auto lg:border-l lg:border-t-0"
       aria-live="polite"
     >

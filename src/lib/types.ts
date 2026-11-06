@@ -44,6 +44,14 @@ export type PoisData = {
 
 export type BestFor = "clear_trash" | "boss" | "control" | "general";
 
+/** Optional deep link into the homepage map tool. */
+export type WeaponMapLink = {
+  region?: string;
+  poi?: string;
+  type?: string;
+  q?: string;
+};
+
 export type MeleeWeapon = {
   id: string;
   name: string;
@@ -52,6 +60,7 @@ export type MeleeWeapon = {
   materials: string[];
   notes: string;
   sources: SourceLink[];
+  mapLink?: WeaponMapLink | null;
 };
 
 export type ThrowingWeapon = {
@@ -62,6 +71,7 @@ export type ThrowingWeapon = {
   bestFor: BestFor[];
   notes: string;
   sources: SourceLink[];
+  mapLink?: WeaponMapLink | null;
 };
 
 export type WeaponsData = {

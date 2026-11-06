@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { FindOnMapLink } from "@/components/map/FindOnMapLink";
 import type { BestFor, MeleeWeapon, ThrowingWeapon } from "@/lib/types";
 
 const BEST_FOR_LABELS: Record<BestFor, string> = {
@@ -39,7 +40,11 @@ export function WeaponsGuide({ melee, throwing }: WeaponsGuideProps) {
 
   return (
     <div className="mx-auto max-w-5xl space-y-12 px-4 py-8 sm:px-6">
-      <section aria-labelledby="melee-heading" id="melee-evolution">
+      <section
+        aria-labelledby="melee-heading"
+        id="melee-evolution"
+        className="scroll-mt-8"
+      >
         <div className="mb-4">
           <h2 id="melee-heading" className="font-display text-2xl text-amber-50">
             Melee evolution
@@ -112,6 +117,12 @@ export function WeaponsGuide({ melee, throwing }: WeaponsGuideProps) {
                       )}
                     </div>
                   </div>
+
+                  {selected.mapLink ? (
+                    <p className="mt-4 text-sm">
+                      <FindOnMapLink link={selected.mapLink} />
+                    </p>
+                  ) : null}
                 </>
               ) : (
                 <p className="text-sm text-stone-500">Select a weapon.</p>
@@ -126,27 +137,36 @@ export function WeaponsGuide({ melee, throwing }: WeaponsGuideProps) {
                 {melee.map((w) => (
                   <li
                     key={w.id}
-                    className={`rounded-md border px-3 py-2 text-sm ${
+                    id={`weapon-${w.id}`}
+                    className={`scroll-mt-8 rounded-md border px-3 py-2 text-sm ${
                       w.id === selected?.id
                         ? "border-amber-800/60 bg-amber-950/20"
                         : "border-stone-800 bg-stone-950/40"
                     }`}
                   >
-                    <button
-                      type="button"
-                      onClick={() => setWeaponId(w.id)}
-                      className="w-full text-left"
-                    >
-                      <span className="font-medium text-stone-100">{w.name}</span>
-                      <span className="mt-0.5 block text-xs text-stone-500">
-                        {w.evolvesTo
-                          ? `Evolves into ${
-                              melee.find((x) => x.id === w.evolvesTo)?.name ??
-                              w.evolvesTo
-                            }`
-                          : "No further evolution"}
-                      </span>
-                    </button>
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setWeaponId(w.id)}
+                        className="min-w-0 flex-1 text-left"
+                      >
+                        <span className="font-medium text-stone-100">{w.name}</span>
+                        <span className="mt-0.5 block text-xs text-stone-500">
+                          {w.evolvesTo
+                            ? `Evolves into ${
+                                melee.find((x) => x.id === w.evolvesTo)?.name ??
+                                w.evolvesTo
+                              }`
+                            : "No further evolution"}
+                        </span>
+                      </button>
+                      {w.mapLink ? (
+                        <FindOnMapLink
+                          link={w.mapLink}
+                          className="shrink-0 text-xs text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+                        />
+                      ) : null}
+                    </div>
                   </li>
                 ))}
               </ol>
@@ -155,7 +175,11 @@ export function WeaponsGuide({ melee, throwing }: WeaponsGuideProps) {
         )}
       </section>
 
-      <section aria-labelledby="throwing-heading" id="throwing-weapons">
+      <section
+        aria-labelledby="throwing-heading"
+        id="throwing-weapons"
+        className="scroll-mt-8"
+      >
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 id="throwing-heading" className="font-display text-2xl text-amber-50">
@@ -197,11 +221,16 @@ export function WeaponsGuide({ melee, throwing }: WeaponsGuideProps) {
                   <th className="px-3 py-2.5 font-medium">Charges / recharge</th>
                   <th className="px-3 py-2.5 font-medium">Best for</th>
                   <th className="px-3 py-2.5 font-medium">Notes</th>
+                  <th className="px-3 py-2.5 font-medium">Map</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-800">
                 {filteredThrowing.map((t) => (
-                  <tr key={t.id} className="bg-stone-950/40 align-top">
+                  <tr
+                    key={t.id}
+                    id={`weapon-${t.id}`}
+                    className="scroll-mt-8 bg-stone-950/40 align-top"
+                  >
                     <td className="px-3 py-3 font-medium text-stone-100">
                       {t.name}
                     </td>
@@ -218,6 +247,16 @@ export function WeaponsGuide({ melee, throwing }: WeaponsGuideProps) {
                       {t.bestFor.map((b) => BEST_FOR_LABELS[b]).join(", ")}
                     </td>
                     <td className="max-w-xs px-3 py-3 text-stone-400">{t.notes}</td>
+                    <td className="px-3 py-3 whitespace-nowrap">
+                      {t.mapLink ? (
+                        <FindOnMapLink
+                          link={t.mapLink}
+                          className="text-xs text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+                        />
+                      ) : (
+                        <span className="text-xs text-stone-600">Map soon</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>

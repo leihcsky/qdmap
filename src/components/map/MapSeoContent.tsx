@@ -340,18 +340,46 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           className="rounded-lg border border-stone-800 bg-stone-950/40 px-4 py-5"
         >
           <h2 id="map-related" className="font-display text-xl text-amber-50">
-            Need weapon evolution help?
+            Location guides &amp; weapons
           </h2>
-          <p className="mt-2 text-sm text-stone-400">
-            After Endu Shrine or when you start packing throwables, open the{" "}
-            <Link
-              href="/weapons"
-              className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
-            >
-              Queen&apos;s Domain weapon evolution guide
-            </Link>{" "}
-            for Level 10 evolve paths and which throwable fits the next fight.
-          </p>
+          <ul className="mt-3 space-y-2 text-sm text-stone-400">
+            <li>
+              <Link
+                href="/obmuer-temple"
+                className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+              >
+                Obmuer Temple map guide
+              </Link>{" "}
+              — Cave Entrance, Sacred Cistern, Prison Corridor, Wing Altar.
+            </li>
+            <li>
+              <Link
+                href="/deimpo-mausoleum"
+                className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+              >
+                Deimpo Mausoleum location guide
+              </Link>{" "}
+              — cemetery route from Cemetery Precipice.
+            </li>
+            <li>
+              <Link
+                href="/fast-travel"
+                className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+              >
+                Fast travel (Wing Altars) guide
+              </Link>{" "}
+              — how warps and Wing Stone Fragments work.
+            </li>
+            <li>
+              <Link
+                href="/weapons"
+                className="text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+              >
+                Weapon evolution &amp; throwing guide
+              </Link>{" "}
+              — Level 10 evolve paths and throwable roles.
+            </li>
+          </ul>
         </section>
       </div>
     </div>
