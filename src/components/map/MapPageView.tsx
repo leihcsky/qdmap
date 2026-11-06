@@ -1,3 +1,4 @@
+import { ResponsiveLeaderboard } from "@/components/ads/ResponsiveLeaderboard";
 import { JsonLd } from "@/components/JsonLd";
 import { faqJsonLd } from "@/components/PageFaq";
 import { MapExplorer } from "@/components/map/MapExplorer";
@@ -46,6 +47,10 @@ export function MapPageView() {
 
       <div className="flex flex-col border-b border-stone-800 lg:min-h-[70vh]">
         <MapExplorer regions={poisData.regions} pois={poisData.pois} />
+      </div>
+
+      <div className="border-b border-stone-800 bg-[#0a0908]/90 px-4 py-2 sm:px-6">
+        <ResponsiveLeaderboard />
       </div>
 
       <MapSeoContent regions={poisData.regions} pois={poisData.pois} />

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { AdRectangle } from "@/components/ads/AdRectangle";
+import { AdsterraNative } from "@/components/ads/AdsterraNative";
 import { PageFaq, type FaqItem } from "@/components/PageFaq";
 import { POI_TYPE_META } from "@/lib/poi-meta";
 import type { Poi, PoiType, Region } from "@/lib/types";
@@ -83,6 +85,8 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
             </li>
           </ol>
         </section>
+
+        <AdRectangle />
 
         <section aria-labelledby="no-map-mechanics" className="scroll-mt-8">
           <h2 id="no-map-mechanics" className="font-display text-2xl text-amber-50">
@@ -216,6 +220,8 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
             </p>
           </div>
         </section>
+
+        <AdsterraNative />
 
         <section aria-labelledby="marker-legend" className="scroll-mt-8">
           <h2 id="marker-legend" className="font-display text-2xl text-amber-50">

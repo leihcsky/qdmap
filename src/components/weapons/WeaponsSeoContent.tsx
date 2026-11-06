@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { AdRectangle } from "@/components/ads/AdRectangle";
+import { AdsterraNative } from "@/components/ads/AdsterraNative";
 import { PageFaq, type FaqItem } from "@/components/PageFaq";
 import type { MeleeWeapon, ThrowingWeapon } from "@/lib/types";
 
@@ -90,6 +92,8 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
           </div>
         </section>
 
+        <AdRectangle />
+
         <section aria-labelledby="how-weapons-work" className="scroll-mt-8">
           <h2 id="how-weapons-work" className="font-display text-2xl text-amber-50">
             How weapons work in Queen&apos;s Domain
@@ -149,6 +153,8 @@ export function WeaponsSeoContent({ melee, throwing }: WeaponsSeoContentProps) {
             </p>
           </div>
         </section>
+
+        <AdsterraNative />
 
         <section aria-labelledby="throwing-guide" className="scroll-mt-8">
           <h2 id="throwing-guide" className="font-display text-2xl text-amber-50">
