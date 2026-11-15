@@ -2,8 +2,15 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Poi, PoiType, Region } from "@/lib/types";
-import { ALL_POI_TYPES, POI_TYPE_META } from "@/lib/poi-meta";
+import type { Elevation, Poi, PoiType, Region } from "@/lib/types";
+import {
+  ALL_ELEVATIONS,
+  ALL_POI_TYPES,
+  DEFAULT_VISIBLE_POI_TYPES,
+  ELEVATION_META,
+  isMappedPoi,
+  POI_TYPE_META,
+} from "@/lib/poi-meta";
 import { buildMapDeepLink, parseMapDeepLink } from "@/lib/map-deep-link";
 import { loadCheckedIds, saveCheckedIds } from "@/lib/storage";
 
@@ -22,7 +29,10 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   );
   const [regionId, setRegionId] = useState(liveRegions[0]?.id ?? "");
   const [selectedTypes, setSelectedTypes] = useState<Set<PoiType>>(
-    () => new Set(ALL_POI_TYPES),
+    () => new Set(DEFAULT_VISIBLE_POI_TYPES),
+  );
+  const [elevationFilter, setElevationFilter] = useState<Elevation | "all">(
+    "all",
   );
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -30,6 +40,8 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   const [hydrated, setHydrated] = useState(false);
   const skipUrlSync = useRef(false);
   const deepLinkKey = searchParams.toString();
+
+  const showBosses = selectedTypes.has("possible_boss");
 
   useEffect(() => {
     setChecked(loadCheckedIds());
@@ -51,15 +63,18 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     skipUrlSync.current = true;
 
     if (targetPoi) {
-      const live = liveRegions.some((r) => r.id === targetPoi.regionId);
-      if (live) setRegionId(targetPoi.regionId);
+      if (liveRegions.some((r) => r.id === targetPoi.regionId)) {
+        setRegionId(targetPoi.regionId);
+      }
 
       if (link.types?.length) {
         const next = new Set(link.types);
         next.add(targetPoi.type);
         setSelectedTypes(next);
       } else {
-        setSelectedTypes(new Set(ALL_POI_TYPES));
+        const next = new Set(DEFAULT_VISIBLE_POI_TYPES);
+        next.add(targetPoi.type);
+        setSelectedTypes(next);
       }
 
       setSelectedId(targetPoi.id);
@@ -69,6 +84,8 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
       }
       if (link.types?.length) {
         setSelectedTypes(new Set(link.types));
+      } else if (!link.poi && !link.region && !link.q) {
+        setSelectedTypes(new Set(DEFAULT_VISIBLE_POI_TYPES));
       }
       setSelectedId(null);
     }
@@ -81,6 +98,7 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
       setQuery(link.q);
     } else if (!hasLink) {
       setQuery("");
+      setElevationFilter("all");
     }
 
     if (hasLink) {
@@ -94,7 +112,6 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     queueMicrotask(() => {
       skipUrlSync.current = false;
     });
-    // liveRegions is derived from regions; pois/regions identity is stable from server props
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deepLinkKey, pois, regions]);
 
@@ -103,20 +120,24 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     if (!hydrated || skipUrlSync.current) return;
 
     const defaultRegion = liveRegions[0]?.id ?? "";
+    const defaultVisible = availableTypes.filter((t) =>
+      DEFAULT_VISIBLE_POI_TYPES.includes(t),
+    );
     const typesArr = availableTypes.filter((t) => selectedTypes.has(t));
-    const allSelected =
-      typesArr.length === availableTypes.length && availableTypes.length > 0;
+    const matchesDefault =
+      typesArr.length === defaultVisible.length &&
+      defaultVisible.every((t) => selectedTypes.has(t));
     const interesting =
       Boolean(selectedId) ||
       Boolean(query.trim()) ||
-      !allSelected ||
+      !matchesDefault ||
       (Boolean(regionId) && regionId !== defaultRegion);
 
     const next = interesting
       ? buildMapDeepLink({
           region: regionId || undefined,
           poi: selectedId ?? undefined,
-          types: allSelected ? undefined : typesArr,
+          types: matchesDefault ? undefined : typesArr,
           q: query.trim() || undefined,
         })
       : "/";
@@ -156,10 +177,21 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     return pois.filter((p) => {
       if (p.regionId !== region?.id) return false;
       if (!selectedTypes.has(p.type)) return false;
+      if (
+        elevationFilter !== "all" &&
+        (p.elevation ?? null) !== elevationFilter
+      ) {
+        return false;
+      }
       if (q && !p.name.toLowerCase().includes(q)) return false;
       return true;
     });
-  }, [pois, region?.id, selectedTypes, query]);
+  }, [pois, region?.id, selectedTypes, query, elevationFilter]);
+
+  const mappedRegionPois = useMemo(
+    () => regionPois.filter(isMappedPoi),
+    [regionPois],
+  );
 
   const selected = pois.find((p) => p.id === selectedId) ?? null;
 
@@ -182,6 +214,15 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     });
   }
 
+  function setShowBosses(on: boolean) {
+    setSelectedTypes((prev) => {
+      const next = new Set(prev);
+      if (on) next.add("possible_boss");
+      else next.delete("possible_boss");
+      return next;
+    });
+  }
+
   function toggleActivated(id: string) {
     setChecked((prev) => {
       const next = new Set(prev);
@@ -192,6 +233,7 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   }
 
   const hasMapArt = Boolean(region?.mapImage);
+  const filterTypes = availableTypes.filter((t) => t !== "possible_boss");
 
   return (
     <div
@@ -223,27 +265,25 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
           </div>
         </div>
 
-        <div role="tablist" aria-label="Regions" className="flex flex-wrap gap-1.5">
-          {liveRegions.map((r) => (
-            <button
-              key={r.id}
-              type="button"
-              role="tab"
-              aria-selected={regionId === r.id}
-              onClick={() => {
-                setRegionId(r.id);
-                setSelectedId(null);
-              }}
-              className={`rounded-md px-2.5 py-1.5 text-xs font-medium transition sm:text-sm ${
-                regionId === r.id
-                  ? "bg-amber-900/60 text-amber-100 ring-1 ring-amber-700/60"
-                  : "bg-stone-900 text-stone-400 hover:bg-stone-800 hover:text-stone-200"
-              }`}
-            >
-              {r.name}
-            </button>
-          ))}
-        </div>
+        <label className="block text-sm">
+          <span className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-stone-500">
+            Region ({liveRegions.length})
+          </span>
+          <select
+            value={regionId}
+            onChange={(e) => {
+              setRegionId(e.target.value);
+              setSelectedId(null);
+            }}
+            className="w-full rounded-md border border-stone-700 bg-stone-950 px-3 py-2 text-stone-200 focus:border-amber-700 focus:outline-none focus:ring-1 focus:ring-amber-700"
+          >
+            {liveRegions.map((r) => (
+              <option key={r.id} value={r.id}>
+                {r.name}
+              </option>
+            ))}
+          </select>
+        </label>
 
         <label className="block">
           <span className="sr-only">Search markers</span>
@@ -261,7 +301,7 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
             Filter types
           </legend>
           <div className="flex flex-wrap gap-1.5">
-            {availableTypes.map((type) => {
+            {filterTypes.map((type) => {
               const meta = POI_TYPE_META[type];
               const on = selectedTypes.has(type);
               return (
@@ -288,20 +328,77 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
           </div>
         </fieldset>
 
+        <fieldset>
+          <legend className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
+            Elevation
+          </legend>
+          <div className="flex flex-wrap gap-1.5">
+            <button
+              type="button"
+              onClick={() => setElevationFilter("all")}
+              aria-pressed={elevationFilter === "all"}
+              className={`rounded-md border px-2 py-1 text-xs transition ${
+                elevationFilter === "all"
+                  ? "border-stone-600 bg-stone-900 text-stone-200"
+                  : "border-stone-800 bg-transparent text-stone-600"
+              }`}
+            >
+              All
+            </button>
+            {ALL_ELEVATIONS.map((elev) => {
+              const on = elevationFilter === elev;
+              return (
+                <button
+                  key={elev}
+                  type="button"
+                  onClick={() => setElevationFilter(elev)}
+                  aria-pressed={on}
+                  className={`rounded-md border px-2 py-1 text-xs transition ${
+                    on
+                      ? "border-stone-600 bg-stone-900 text-stone-200"
+                      : "border-stone-800 bg-transparent text-stone-600"
+                  }`}
+                >
+                  {ELEVATION_META[elev]}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
+
+        <label className="flex cursor-pointer items-start gap-2 rounded-md border border-stone-800 bg-stone-950/60 px-3 py-2 text-xs text-stone-400">
+          <input
+            type="checkbox"
+            checked={showBosses}
+            onChange={(e) => setShowBosses(e.target.checked)}
+            className="mt-0.5 size-4 rounded border-stone-600 bg-stone-900 text-red-600 focus:ring-red-700"
+          />
+          <span>
+            <span className="block font-medium text-stone-300">
+              Show possible bosses
+            </span>
+            <span className="mt-0.5 block text-stone-500">
+              Off by default to reduce spoilers. Names appear in the list only —
+              no fake map pins.
+            </span>
+          </span>
+        </label>
+
         <div className="flex min-h-0 flex-1 flex-col">
           <h2 className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
-            Markers ({regionPois.length})
+            Locations ({regionPois.length})
           </h2>
           <ul className="max-h-64 space-y-1 overflow-y-auto lg:max-h-none lg:flex-1">
             {regionPois.length === 0 && (
               <li className="rounded-md border border-dashed border-stone-800 px-3 py-4 text-sm text-stone-500">
-                No markers match this filter.
+                No locations match this filter.
               </li>
             )}
             {regionPois.map((poi) => {
               const meta = POI_TYPE_META[poi.type];
               const isSelected = selectedId === poi.id;
               const isChecked = checked.has(poi.id);
+              const mapped = isMappedPoi(poi);
               return (
                 <li key={poi.id} id={`poi-list-${poi.id}`}>
                   <button
@@ -325,7 +422,15 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
                           <span className="ml-1.5 text-xs text-emerald-400">✓</span>
                         ) : null}
                       </span>
-                      <span className="block text-xs text-stone-500">{meta.label}</span>
+                      <span className="mt-0.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-stone-500">
+                        <span>{meta.label}</span>
+                        {poi.elevation ? (
+                          <span>{ELEVATION_META[poi.elevation]}</span>
+                        ) : null}
+                        {!mapped ? (
+                          <span className="text-amber-700/90">Unmapped</span>
+                        ) : null}
+                      </span>
                     </span>
                   </button>
                 </li>
@@ -338,8 +443,69 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
       <div className="flex min-w-0 flex-1 flex-col gap-3 p-0 lg:flex-row lg:gap-0">
         <div className="relative min-h-[280px] flex-1 overflow-auto border-y border-stone-800 bg-[#12100e] lg:border-y-0">
           {!hasMapArt ? (
-            <div className="flex h-full min-h-[280px] items-center justify-center p-6 text-center text-stone-500">
-              Use the marker list while overview art loads for this region.
+            <div className="flex h-full min-h-[280px] flex-col gap-4 p-4 sm:p-6">
+              <div className="rounded-md border border-stone-800 bg-stone-950/50 px-3 py-3">
+                <p className="text-sm font-medium text-stone-200">
+                  {region?.name ?? "This region"} checklist
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-stone-500">
+                  Overview art and map pins are not available yet for this zone.
+                  Use the checklist below (or the sidebar list) to track Crystal
+                  Monuments, Wing Altars, and other locations — we only place pins
+                  after coordinates are verified.
+                </p>
+              </div>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                {regionPois.length === 0 ? (
+                  <li className="text-sm text-stone-500 sm:col-span-2">
+                    No locations match the current filters.
+                    {!showBosses
+                      ? " Turn on Show possible bosses if you are looking for boss entries."
+                      : null}
+                  </li>
+                ) : (
+                  regionPois.map((poi) => {
+                    const meta = POI_TYPE_META[poi.type];
+                    const isSelected = selectedId === poi.id;
+                    const isChecked = checked.has(poi.id);
+                    return (
+                      <li key={poi.id}>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedId(poi.id)}
+                          className={`flex w-full items-start gap-2 rounded-md border px-3 py-2.5 text-left text-sm transition ${
+                            isSelected
+                              ? "border-amber-700/70 bg-amber-950/40"
+                              : "border-stone-800 bg-stone-950/40 hover:border-stone-700"
+                          }`}
+                        >
+                          <span
+                            className="mt-1 size-2.5 shrink-0 rounded-full"
+                            style={{ backgroundColor: meta.color }}
+                            aria-hidden
+                          />
+                          <span className="min-w-0 flex-1">
+                            <span className="block font-medium text-stone-100">
+                              {poi.name}
+                              {isChecked ? (
+                                <span className="ml-1.5 text-xs text-emerald-400">
+                                  ✓
+                                </span>
+                              ) : null}
+                            </span>
+                            <span className="mt-0.5 block text-xs text-stone-500">
+                              {meta.label}
+                              {poi.elevation
+                                ? ` · ${ELEVATION_META[poi.elevation]}`
+                                : ""}
+                            </span>
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })
+                )}
+              </ul>
             </div>
           ) : (
             <div
@@ -356,7 +522,7 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
                 className="block h-auto w-full select-none"
                 draggable={false}
               />
-              {regionPois.map((poi) => {
+              {mappedRegionPois.map((poi) => {
                 const meta = POI_TYPE_META[poi.type];
                 const isSelected = selectedId === poi.id;
                 const isChecked = checked.has(poi.id);
@@ -371,8 +537,8 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
                       isSelected ? "z-20 scale-125" : "hover:scale-110"
                     }`}
                     style={{
-                      left: `${poi.x * 100}%`,
-                      top: `${poi.y * 100}%`,
+                      left: `${(poi.x as number) * 100}%`,
+                      top: `${(poi.y as number) * 100}%`,
                     }}
                   >
                     <span
@@ -426,12 +592,13 @@ function DetailPanel({
         id="map-detail-panel"
         className="w-full shrink-0 border-t border-stone-800 bg-[#0e0c0b] p-4 text-sm text-stone-500 lg:w-80 lg:overflow-y-auto lg:border-l lg:border-t-0"
       >
-        Select a marker on the list or map to read how to find it.
+        Select a location from the list or map to read details.
       </aside>
     );
   }
 
   const meta = POI_TYPE_META[poi.type];
+  const mapped = isMappedPoi(poi);
 
   return (
     <aside
@@ -441,7 +608,7 @@ function DetailPanel({
     >
       <div className="mb-3 flex items-start justify-between gap-2">
         <div>
-          <p className="flex items-center gap-2 text-xs text-stone-500">
+          <p className="flex flex-wrap items-center gap-2 text-xs text-stone-500">
             <span
               className="inline-block size-2.5 rounded-full"
               style={{ backgroundColor: meta.color }}
@@ -449,6 +616,7 @@ function DetailPanel({
             />
             {meta.label}
             {regionName ? ` · ${regionName}` : null}
+            {poi.elevation ? ` · ${ELEVATION_META[poi.elevation]}` : null}
           </p>
           <h2 className="mt-1 font-display text-xl text-amber-50">{poi.name}</h2>
         </div>
@@ -461,6 +629,13 @@ function DetailPanel({
           Close
         </button>
       </div>
+
+      {!mapped ? (
+        <p className="mb-3 rounded-md border border-amber-900/50 bg-amber-950/30 px-3 py-2 text-xs text-amber-100/90">
+          Location not precisely mapped yet — listed for checklist tracking only.
+          No map pin until coordinates are verified.
+        </p>
+      ) : null}
 
       <p className="text-sm text-stone-300">{poi.summary}</p>
 
@@ -478,6 +653,37 @@ function DetailPanel({
           </h3>
           <p className="mt-1 text-sm text-stone-400">{poi.tips}</p>
         </section>
+      ) : null}
+
+      <dl className="mt-4 grid grid-cols-2 gap-2 text-xs text-stone-500">
+        <div>
+          <dt className="uppercase tracking-wider">Coordinates</dt>
+          <dd className="mt-0.5 text-stone-300">
+            {mapped ? "Verified pin" : "Unverified"}
+          </dd>
+        </div>
+        <div>
+          <dt className="uppercase tracking-wider">Source status</dt>
+          <dd className="mt-0.5 text-stone-300">
+            {poi.verificationStatus === "community_verified"
+              ? "Community verified"
+              : "Secondary source"}
+          </dd>
+        </div>
+      </dl>
+
+      {poi.sources[0] ? (
+        <p className="mt-3 text-xs text-stone-600">
+          Source:{" "}
+          <a
+            href={poi.sources[0].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-stone-500 underline-offset-2 hover:text-stone-300 hover:underline"
+          >
+            {poi.sources[0].label}
+          </a>
+        </p>
       ) : null}
 
       <label className="mt-5 flex cursor-pointer items-center gap-2 rounded-md border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200">

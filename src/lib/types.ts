@@ -1,11 +1,21 @@
 export type PoiType =
   | "crystal_monument"
   | "wing_altar"
+  | "wind_gem"
+  | "possible_boss"
   | "landmark"
   | "shortcut"
   | "boss_door"
   | "shop_npc"
   | "key_item";
+
+export type Elevation = "lower" | "middle" | "upper";
+
+export type CoordinateStatus = "verified" | "unverified";
+
+export type VerificationStatus =
+  | "community_verified"
+  | "secondary_source_only";
 
 export type RegionStatus = "live" | "coming_soon";
 
@@ -28,8 +38,13 @@ export type Poi = {
   regionId: string;
   type: PoiType;
   name: string;
-  x: number;
-  y: number;
+  /** Relative map coords 0–1 when verified; null until a pin is confirmed. */
+  x: number | null;
+  y: number | null;
+  elevation?: Elevation | null;
+  coordinateStatus: CoordinateStatus;
+  verificationStatus: VerificationStatus;
+  spoiler?: boolean;
   summary: string;
   howToFind: string;
   tips?: string;

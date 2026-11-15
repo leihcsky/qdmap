@@ -56,6 +56,11 @@ Copy and FAQs live in `src/lib/landings.ts`.
 
 Source of truth: [`data/pois.json`](data/pois.json).
 
+- Verified pins (`coordinateStatus: "verified"` + `x`/`y`) render on overview art.
+- Unverified locations stay list-only — never invent pins.
+- `possible_boss` is hidden in the tool until the user enables Show possible bosses.
+- To re-merge secondary imports: `node scripts/merge-new-locations.mjs` (keeps Neasied/Obmuer).
+
 1. Add or edit a POI under `pois` with `regionId`, `type`, `name`, relative `x`/`y` (0–1), `summary`, `howToFind`, optional `tips`, `countsForWellTravelled`, and `sources` URLs.
 2. Keep copy original English; cite guides as `sources` links (do not paste full third-party articles).
 3. Marker types: `crystal_monument` | `wing_altar` | `landmark` | `shortcut` | `boss_door` | `shop_npc` | `key_item`.

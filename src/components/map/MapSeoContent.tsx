@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AdRectangle } from "@/components/ads/AdRectangle";
 import { AdsterraNative } from "@/components/ads/AdsterraNative";
 import { PageFaq, type FaqItem } from "@/components/PageFaq";
-import { POI_TYPE_META } from "@/lib/poi-meta";
+import { isMappedPoi, POI_TYPE_META } from "@/lib/poi-meta";
 import type { Poi, PoiType, Region } from "@/lib/types";
 
 const MAP_FAQS: FaqItem[] = [
@@ -52,8 +52,11 @@ type MapSeoContentProps = {
 
 export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
   const liveRegions = regions.filter((r) => r.status === "live");
+  // Omit possible_boss from public SEO legend/directory to reduce spoilers.
+  const publicPois = pois.filter((p) => p.type !== "possible_boss");
   const typesPresent = (Object.keys(POI_TYPE_META) as PoiType[]).filter(
-    (type) => pois.some((p) => p.type === type),
+    (type) =>
+      type !== "possible_boss" && publicPois.some((p) => p.type === type),
   );
 
   const byId = (id: string) => pois.find((p) => p.id === id);
@@ -67,12 +70,13 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           </h2>
           <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-relaxed text-stone-300">
             <li>
-              Switch between <span className="text-stone-100">Isle of Neasied</span>{" "}
-              and <span className="text-stone-100">Obmuer Temple</span>.
+              Choose a region from the list — Isle of Neasied and Obmuer Temple have
+              overview pins; other zones are list-first until coordinates are
+              verified.
             </li>
             <li>
-              Filter by marker type or search by name, then open a pin from the list
-              or the map.
+              Filter by type or elevation, search by name, then open a location from
+              the list (or a verified pin on the map).
             </li>
             <li>
               Read <span className="text-stone-100">How to find</span> for compass
@@ -233,7 +237,7 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {typesPresent.map((type) => {
               const meta = POI_TYPE_META[type];
-              const count = pois.filter((p) => p.type === type).length;
+              const count = publicPois.filter((p) => p.type === type).length;
               return (
                 <li
                   key={type}
@@ -267,7 +271,9 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           </h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {liveRegions.map((region) => {
-              const regionPois = pois.filter((p) => p.regionId === region.id);
+              const regionPois = publicPois.filter(
+                (p) => p.regionId === region.id,
+              );
               return (
                 <article
                   key={region.id}
@@ -280,7 +286,8 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
                     {regionBlurb(region.id)}
                   </p>
                   <p className="mt-3 text-xs uppercase tracking-wider text-stone-500">
-                    Markers here ({regionPois.length})
+                    Locations here ({regionPois.length})
+                    {!region.mapImage ? " · checklist (pins pending)" : ""}
                   </p>
                   <ul className="mt-2 space-y-1.5">
                     {regionPois.map((poi) => (
@@ -294,6 +301,7 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
                         <span className="text-stone-600">
                           {" "}
                           — {POI_TYPE_META[poi.type].label}
+                          {isMappedPoi(poi) ? "" : " · unmapped"}
                         </span>
                       </li>
                     ))}
@@ -313,7 +321,7 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
             How to find directions.
           </p>
           <ol className="mt-4 columns-1 gap-x-8 space-y-2 sm:columns-2">
-            {pois.map((poi) => {
+            {publicPois.map((poi) => {
               const regionName =
                 regions.find((r) => r.id === poi.regionId)?.name ?? poi.regionId;
               return (
@@ -324,7 +332,8 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
                   <span className="font-medium text-stone-100">{poi.name}</span>
                   <span className="text-stone-500">
                     {" "}
-                    ({POI_TYPE_META[poi.type].label}, {regionName})
+                    ({POI_TYPE_META[poi.type].label}, {regionName}
+                    {isMappedPoi(poi) ? "" : ", unmapped"})
                   </span>
                   <span className="mt-0.5 block text-stone-500">{poi.summary}</span>
                 </li>
@@ -392,6 +401,10 @@ function legendBlurb(type: PoiType): string {
       return "Save and rest hubs. Hit these before risky climbs or boss doors.";
     case "wing_altar":
       return "Zone fast-travel points once you discover them.";
+    case "wind_gem":
+      return "Wind Gem nodes that expand dash / wind traversal options.";
+    case "possible_boss":
+      return "Optional spoiler tracking — hidden in the tool until you enable it.";
     case "landmark":
       return "Named places that make How to find directions easier to follow.";
     case "shortcut":
@@ -411,7 +424,11 @@ function regionBlurb(regionId: string): string {
       return "Starter island: smash the western barricade for Knight's Encampment, climb toward Cemetery Precipice and Deimpo Mausoleum, clear Endu Shrine for Holy Sword Endu, then push on toward Obmuer Temple.";
     case "obmuer-temple":
       return "Sunken temple after Neasied. Cave Entrance, Sacred Cistern, and Prison Corridor monuments break up slate and key puzzles — save before long corridor runs.";
+    case "deimpo-mausoleum":
+      return "Interior mausoleum checklist (list-first). The exterior front landmark still lives on the Isle of Neasied overview.";
+    case "tower-of-knowledge":
+      return "List-first coverage for monuments, Wing Altar, and Wind Gem routes. Pins arrive after coordinates are verified.";
     default:
-      return "Explore the listed markers and use How to find notes as you go.";
+      return "List-first region: browse named locations and mark progress locally. Overview art and pins are added after coordinates are verified.";
   }
 }

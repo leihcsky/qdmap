@@ -40,3 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 queens-domain-map-prd.md
+queens_domain_new_locations.csv
+queens_domain_new_locations.json

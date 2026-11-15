@@ -22,15 +22,87 @@
       "mapImage": "",
       "mapWidth": 1600,
       "mapHeight": 1200,
-      "status": "coming_soon"
+      "status": "live"
     },
     {
-      "id": "mainland",
-      "name": "Mainland",
+      "id": "deimpo-mausoleum",
+      "name": "Deimpo Mausoleum",
       "mapImage": "",
       "mapWidth": 1600,
       "mapHeight": 1200,
-      "status": "coming_soon"
+      "status": "live"
+    },
+    {
+      "id": "ancient-world",
+      "name": "Ancient World",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "ventilation-shaft",
+      "name": "Ventilation Shaft",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "siraatsu-castle",
+      "name": "Siraatsu Castle",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "underworld",
+      "name": "Underworld",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "forgotten-dungeon",
+      "name": "Forgotten Dungeon",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "record-of-sin",
+      "name": "Record of Sin",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "rotting-cavern",
+      "name": "Rotting Cavern",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "verdant-hollow",
+      "name": "Verdant Hollow",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
+    },
+    {
+      "id": "petrified-garden",
+      "name": "Petrified Garden",
+      "mapImage": "",
+      "mapWidth": 1600,
+      "mapHeight": 1200,
+      "status": "live"
     }
   ],
   "pois": [
@@ -54,7 +126,11 @@
           "label": "TechRaptor — Beginner Tips",
           "url": "https://techraptor.net/gaming/guides/queens-domain-guide-beginner-tips-and-tricks"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "cm-cemetery-precipice",
@@ -72,7 +148,11 @@
           "label": "TechRaptor — Isle of Neasied Walkthrough",
           "url": "https://techraptor.net/gaming/guides/queens-domain-isle-of-neasied-walkthrough"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "lm-deimpo-mausoleum",
@@ -90,7 +170,11 @@
           "label": "TechRaptor — Isle of Neasied Walkthrough",
           "url": "https://techraptor.net/gaming/guides/queens-domain-isle-of-neasied-walkthrough"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "lm-endu-shrine",
@@ -108,7 +192,11 @@
           "label": "TechRaptor — Isle of Neasied Walkthrough",
           "url": "https://techraptor.net/gaming/guides/queens-domain-isle-of-neasied-walkthrough"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "wa-neasied",
@@ -126,7 +214,11 @@
           "label": "TechRaptor — Beginner Tips (Fast Travel)",
           "url": "https://techraptor.net/gaming/guides/queens-domain-guide-beginner-tips-and-tricks"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "cm-cave-entrance-obmuer",
@@ -144,7 +236,11 @@
           "label": "TechRaptor — Obmuer Temple Walkthrough",
           "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "cm-sacred-cistern",
@@ -162,7 +258,11 @@
           "label": "TechRaptor — Obmuer Temple Walkthrough",
           "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "cm-prison-corridor-obmuer",
@@ -180,7 +280,11 @@
           "label": "TechRaptor — Obmuer Temple Walkthrough",
           "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
         }
-      ]
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
     },
     {
       "id": "wa-obmuer",
@@ -201,6 +305,1088 @@
         {
           "label": "TechRaptor — Obmuer Temple Walkthrough",
           "url": "https://techraptor.net/gaming/guides/queens-domain-obmuer-temple-walkthrough"
+        }
+      ],
+      "elevation": null,
+      "coordinateStatus": "verified",
+      "verificationStatus": "community_verified",
+      "spoiler": false
+    },
+    {
+      "id": "tower-of-knowledge-1",
+      "regionId": "tower-of-knowledge",
+      "type": "crystal_monument",
+      "name": "Forbidden Archives",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Tower of Knowledge (Upper elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the upper elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "tower-of-knowledge-2",
+      "regionId": "tower-of-knowledge",
+      "type": "crystal_monument",
+      "name": "Foyer",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Tower of Knowledge (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "tower-of-knowledge-3",
+      "regionId": "tower-of-knowledge",
+      "type": "crystal_monument",
+      "name": "Stairwell",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Tower of Knowledge (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "tower-of-knowledge-4",
+      "regionId": "tower-of-knowledge",
+      "type": "wing_altar",
+      "name": "Tower of Knowledge",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Tower of Knowledge (Middle elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Tower of Knowledge, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "tower-of-knowledge-5",
+      "regionId": "tower-of-knowledge",
+      "type": "possible_boss",
+      "name": "Skeletal Executioner",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Tower of Knowledge (Lower elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "tower-of-knowledge-6",
+      "regionId": "tower-of-knowledge",
+      "type": "possible_boss",
+      "name": "The Necronomicon",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Tower of Knowledge (Upper elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "deimpo-mausoleum-1",
+      "regionId": "deimpo-mausoleum",
+      "type": "crystal_monument",
+      "name": "Crumbling Stairwell",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Deimpo Mausoleum (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "deimpo-mausoleum-2",
+      "regionId": "deimpo-mausoleum",
+      "type": "crystal_monument",
+      "name": "Lower Area",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Deimpo Mausoleum (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "deimpo-mausoleum-3",
+      "regionId": "deimpo-mausoleum",
+      "type": "wing_altar",
+      "name": "Deimpo Mausoleum",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Deimpo Mausoleum (Middle elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Deimpo Mausoleum, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "deimpo-mausoleum-4",
+      "regionId": "deimpo-mausoleum",
+      "type": "crystal_monument",
+      "name": "Puwema’s Rest Room",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Deimpo Mausoleum (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "deimpo-mausoleum-5",
+      "regionId": "deimpo-mausoleum",
+      "type": "wind_gem",
+      "name": "Wind Gem",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wind Gem pickup in Deimpo Mausoleum (Upper elevation).",
+      "howToFind": "Exact coordinates are not verified yet. Search Deimpo Mausoleum at the upper elevation for the Wind Gem node named in community references.",
+      "tips": "Mark as found after you collect it. A map pin will appear once coordinates are community-verified.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "deimpo-mausoleum-6",
+      "regionId": "deimpo-mausoleum",
+      "type": "possible_boss",
+      "name": "Duenir, Depraved Horns of Agony",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Deimpo Mausoleum (Lower elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "deimpo-mausoleum-7",
+      "regionId": "deimpo-mausoleum",
+      "type": "possible_boss",
+      "name": "Poenir, Rotten Wings of Despair",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Deimpo Mausoleum (Middle elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ancient-world-1",
+      "regionId": "ancient-world",
+      "type": "crystal_monument",
+      "name": "Overlook",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Ancient World (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ancient World and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ancient-world-2",
+      "regionId": "ancient-world",
+      "type": "crystal_monument",
+      "name": "Scrap Yard",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Ancient World (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ancient World and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ancient-world-3",
+      "regionId": "ancient-world",
+      "type": "crystal_monument",
+      "name": "Ossi’s Lab",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Ancient World (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ancient World and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ancient-world-4",
+      "regionId": "ancient-world",
+      "type": "wing_altar",
+      "name": "Ancient World",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Ancient World (Middle elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Ancient World, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ancient-world-5",
+      "regionId": "ancient-world",
+      "type": "wind_gem",
+      "name": "Wind Gem",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wind Gem pickup in Ancient World (Upper elevation).",
+      "howToFind": "Exact coordinates are not verified yet. Search Ancient World at the upper elevation for the Wind Gem node named in community references.",
+      "tips": "Mark as found after you collect it. A map pin will appear once coordinates are community-verified.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ancient-world-6",
+      "regionId": "ancient-world",
+      "type": "possible_boss",
+      "name": "Josami Lord Saijha",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Ancient World (Upper elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ancient-world-7",
+      "regionId": "ancient-world",
+      "type": "possible_boss",
+      "name": "Ancient Besom Cutter",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Ancient World (Middle elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "ventilation-shaft-1",
+      "regionId": "ventilation-shaft",
+      "type": "crystal_monument",
+      "name": "Ventilation Shaft",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Ventilation Shaft (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ventilation Shaft and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-1",
+      "regionId": "siraatsu-castle",
+      "type": "crystal_monument",
+      "name": "Foyer",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Siraatsu Castle (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-2",
+      "regionId": "siraatsu-castle",
+      "type": "crystal_monument",
+      "name": "Halls of Disrepair",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Siraatsu Castle (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-3",
+      "regionId": "siraatsu-castle",
+      "type": "crystal_monument",
+      "name": "Lift Room",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Siraatsu Castle (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-4",
+      "regionId": "siraatsu-castle",
+      "type": "wing_altar",
+      "name": "Siraatsu Castle",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Siraatsu Castle (Lower elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Siraatsu Castle, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-5",
+      "regionId": "siraatsu-castle",
+      "type": "possible_boss",
+      "name": "Drilling Unit X",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Siraatsu Castle (Lower elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-6",
+      "regionId": "siraatsu-castle",
+      "type": "possible_boss",
+      "name": "Duchess Ubhaer",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Siraatsu Castle (Middle elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-7",
+      "regionId": "siraatsu-castle",
+      "type": "possible_boss",
+      "name": "Besom Cutter Pro",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Siraatsu Castle (Lower elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-8",
+      "regionId": "siraatsu-castle",
+      "type": "possible_boss",
+      "name": "Duke Obetda",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Siraatsu Castle (Middle elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "siraatsu-castle-9",
+      "regionId": "siraatsu-castle",
+      "type": "possible_boss",
+      "name": "Queen Siraatsu",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Siraatsu Castle (Upper elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "underworld-1",
+      "regionId": "underworld",
+      "type": "crystal_monument",
+      "name": "Halls Shrouded in Darkness",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Underworld (Upper elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Underworld and watch for the named crystal monument at the upper elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "underworld-2",
+      "regionId": "underworld",
+      "type": "crystal_monument",
+      "name": "Crimson Grotto",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Underworld (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Underworld and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "forgotten-dungeon-1",
+      "regionId": "forgotten-dungeon",
+      "type": "crystal_monument",
+      "name": "Pit of Despair",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Forgotten Dungeon (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Forgotten Dungeon and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "record-of-sin-1",
+      "regionId": "record-of-sin",
+      "type": "crystal_monument",
+      "name": "Before Okbujo’s Tree",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Record of Sin (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Record of Sin and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "record-of-sin-2",
+      "regionId": "record-of-sin",
+      "type": "crystal_monument",
+      "name": "Pinnacle Anteroom",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Record of Sin (Upper elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Record of Sin and watch for the named crystal monument at the upper elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "record-of-sin-3",
+      "regionId": "record-of-sin",
+      "type": "wing_altar",
+      "name": "Record of Sin",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Record of Sin (Lower elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Record of Sin, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "record-of-sin-4",
+      "regionId": "record-of-sin",
+      "type": "possible_boss",
+      "name": "Herald of Okbujo",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Record of Sin (Upper elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "rotting-cavern-1",
+      "regionId": "rotting-cavern",
+      "type": "crystal_monument",
+      "name": "Decaying Great Tree",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Rotting Cavern (Upper elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the upper elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "rotting-cavern-2",
+      "regionId": "rotting-cavern",
+      "type": "crystal_monument",
+      "name": "Crumbling Fortress",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Rotting Cavern (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "rotting-cavern-3",
+      "regionId": "rotting-cavern",
+      "type": "crystal_monument",
+      "name": "Temple Entrance",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Rotting Cavern (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "rotting-cavern-4",
+      "regionId": "rotting-cavern",
+      "type": "wing_altar",
+      "name": "Rotting Cavern",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Rotting Cavern (Lower elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Rotting Cavern, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "verdant-hollow-1",
+      "regionId": "verdant-hollow",
+      "type": "crystal_monument",
+      "name": "Cliff Edge",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Verdant Hollow (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Verdant Hollow and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "verdant-hollow-2",
+      "regionId": "verdant-hollow",
+      "type": "crystal_monument",
+      "name": "Lakeside",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Verdant Hollow (Lower elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Verdant Hollow and watch for the named crystal monument at the lower elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "verdant-hollow-3",
+      "regionId": "verdant-hollow",
+      "type": "wing_altar",
+      "name": "Verdant Hollow",
+      "x": null,
+      "y": null,
+      "elevation": "lower",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Verdant Hollow (Lower elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Verdant Hollow, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "verdant-hollow-4",
+      "regionId": "verdant-hollow",
+      "type": "possible_boss",
+      "name": "Malachite Dragon Wujomiod",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Verdant Hollow (Upper elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "verdant-hollow-5",
+      "regionId": "verdant-hollow",
+      "type": "possible_boss",
+      "name": "Dragon Lord Usunha",
+      "x": null,
+      "y": null,
+      "elevation": "upper",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Verdant Hollow (Upper elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "petrified-garden-1",
+      "regionId": "petrified-garden",
+      "type": "crystal_monument",
+      "name": "Stone Hut",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Crystal Monument in Petrified Garden (Middle elevation).",
+      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Petrified Garden and watch for the named crystal monument at the middle elevation.",
+      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "petrified-garden-2",
+      "regionId": "petrified-garden",
+      "type": "wing_altar",
+      "name": "Petrified Garden",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": false,
+      "summary": "Wing Altar for Petrified Garden (Middle elevation) — unlocks fast travel between discovered altars.",
+      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Petrified Garden, then activate it for the warp network.",
+      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "countsForWellTravelled": true,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
+        }
+      ]
+    },
+    {
+      "id": "petrified-garden-3",
+      "regionId": "petrified-garden",
+      "type": "possible_boss",
+      "name": "Lost King Ojjama",
+      "x": null,
+      "y": null,
+      "elevation": "middle",
+      "coordinateStatus": "unverified",
+      "verificationStatus": "secondary_source_only",
+      "spoiler": true,
+      "summary": "Possible boss encounter listed for Petrified Garden (Middle elevation). Confirm in your own playthrough.",
+      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
+      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "countsForWellTravelled": false,
+      "sources": [
+        {
+          "label": "GameWikiStation — Queen's Domain map reference",
+          "url": "https://gamewikistation.com/games/queens-domain/reference/map/"
         }
       ]
     }

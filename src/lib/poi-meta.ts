@@ -1,4 +1,4 @@
-import type { PoiType } from "./types";
+import type { Elevation, Poi, PoiType } from "./types";
 
 export const POI_TYPE_META: Record<
   PoiType,
@@ -16,6 +16,18 @@ export const POI_TYPE_META: Record<
     colorClass: "bg-purple-500",
     ringClass: "ring-purple-400",
   },
+  wind_gem: {
+    label: "Wind Gem",
+    color: "#22d3ee",
+    colorClass: "bg-cyan-400",
+    ringClass: "ring-cyan-300",
+  },
+  possible_boss: {
+    label: "Possible Boss",
+    color: "#ef4444",
+    colorClass: "bg-red-500",
+    ringClass: "ring-red-400",
+  },
   landmark: {
     label: "Landmark",
     color: "#9ca3af",
@@ -30,9 +42,9 @@ export const POI_TYPE_META: Record<
   },
   boss_door: {
     label: "Boss Door",
-    color: "#ef4444",
-    colorClass: "bg-red-500",
-    ringClass: "ring-red-400",
+    color: "#f97316",
+    colorClass: "bg-orange-500",
+    ringClass: "ring-orange-400",
   },
   shop_npc: {
     label: "Shop / NPC",
@@ -50,4 +62,25 @@ export const POI_TYPE_META: Record<
 
 export const ALL_POI_TYPES = Object.keys(POI_TYPE_META) as PoiType[];
 
+/** Types shown by default — Possible Boss stays off to avoid spoilers. */
+export const DEFAULT_VISIBLE_POI_TYPES: PoiType[] = ALL_POI_TYPES.filter(
+  (t) => t !== "possible_boss",
+);
+
+export const ELEVATION_META: Record<Elevation, string> = {
+  lower: "Lower",
+  middle: "Middle",
+  upper: "Upper",
+};
+
+export const ALL_ELEVATIONS = Object.keys(ELEVATION_META) as Elevation[];
+
 export const STORAGE_KEY = "qd-map-checks-v1";
+
+export function isMappedPoi(poi: Poi): boolean {
+  return (
+    poi.coordinateStatus === "verified" &&
+    typeof poi.x === "number" &&
+    typeof poi.y === "number"
+  );
+}
