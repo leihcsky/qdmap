@@ -114,8 +114,8 @@
       "x": 0.38,
       "y": 0.72,
       "summary": "Early Crystal Monument — save and rest point near the starting knight camp.",
-      "howToFind": "From the beach landing, face west and smash the wooden barricade (many hits). The monument sits just beyond it at the knight camp fork.",
-      "tips": "Resting fully heals you but respawns nearby enemies. Saving does not respawn enemies. Save often — there are no auto-checkpoints.",
+      "howToFind": "From the beach landing, face west and smash the wooden barricade (many hits). The Crystal Monument sits just beyond it at the knight camp fork — look for the blue save glow beside the tents.",
+      "tips": "Resting fully heals you but respawns nearby enemies. Saving does not respawn enemies. Save here before the Endu Shrine gate or the cemetery climb.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -140,8 +140,8 @@
       "x": 0.55,
       "y": 0.42,
       "summary": "Cliffside Crystal Monument overlooking the island cemetery paths.",
-      "howToFind": "From the knight camp area, climb northeast up the hill. Look for a blue glow along the precipice — that is the Cemetery Precipice monument.",
-      "tips": "Useful hub before the mausoleum routes and Wind Crystal side paths. Save before risky dashes and lizard fights nearby.",
+      "howToFind": "From Knight's Encampment, climb northeast up the hill toward the cemetery paths. Look for a blue glow along the cliff edge — that is Cemetery Precipice.",
+      "tips": "Best staging save before Deimpo Mausoleum and Wind Crystal side paths. Save before lizard fights on the raised cemetery road.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -162,8 +162,8 @@
       "x": 0.68,
       "y": 0.48,
       "summary": "Locked mausoleum landmark east of Cemetery Precipice; key story item route.",
-      "howToFind": "From Cemetery Precipice, head east past tombstones and Star Lizard ground. The locked mausoleum front sits on that raised cemetery road.",
-      "tips": "Clear lizards carefully before engaging near the door. Notes nearby mention a book delivered here by mainland knights.",
+      "howToFind": "Save at Cemetery Precipice first, then head east past tombstones and Star Lizard ground. The locked Deimpo Mausoleum front sits on that raised cemetery road.",
+      "tips": "Clear lizards before lingering at the door. Notes nearby mention a book delivered by mainland knights — useful landmark even if you are not entering yet.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -324,8 +324,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Tower of Knowledge (Upper elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the upper elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the upper elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -346,8 +346,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Tower of Knowledge (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -368,8 +368,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Tower of Knowledge (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Tower of Knowledge and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -390,8 +390,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Tower of Knowledge (Middle elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Tower of Knowledge, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Tower of Knowledge, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -412,8 +412,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Tower of Knowledge (Lower elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -434,8 +434,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Tower of Knowledge (Upper elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -456,8 +456,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Deimpo Mausoleum (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -478,8 +478,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Deimpo Mausoleum (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -500,8 +500,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Deimpo Mausoleum (Middle elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Deimpo Mausoleum, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Deimpo Mausoleum, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -522,8 +522,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Deimpo Mausoleum (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Deimpo Mausoleum and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -544,8 +544,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wind Gem pickup in Deimpo Mausoleum (Upper elevation).",
-      "howToFind": "Exact coordinates are not verified yet. Search Deimpo Mausoleum at the upper elevation for the Wind Gem node named in community references.",
-      "tips": "Mark as found after you collect it. A map pin will appear once coordinates are community-verified.",
+      "howToFind": "Search Deimpo Mausoleum at the upper elevation for the Wind Gem node named in community references. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found after you collect it.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -566,8 +566,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Deimpo Mausoleum (Lower elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -588,8 +588,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Deimpo Mausoleum (Middle elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -610,8 +610,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Ancient World (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ancient World and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Ancient World and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -632,8 +632,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Ancient World (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ancient World and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Ancient World and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -654,8 +654,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Ancient World (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ancient World and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Ancient World and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -676,8 +676,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Ancient World (Middle elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Ancient World, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Ancient World, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -698,8 +698,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wind Gem pickup in Ancient World (Upper elevation).",
-      "howToFind": "Exact coordinates are not verified yet. Search Ancient World at the upper elevation for the Wind Gem node named in community references.",
-      "tips": "Mark as found after you collect it. A map pin will appear once coordinates are community-verified.",
+      "howToFind": "Search Ancient World at the upper elevation for the Wind Gem node named in community references. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found after you collect it.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -720,8 +720,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Ancient World (Upper elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -742,8 +742,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Ancient World (Middle elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -764,8 +764,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Ventilation Shaft (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Ventilation Shaft and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Ventilation Shaft and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -786,8 +786,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Siraatsu Castle (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -808,8 +808,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Siraatsu Castle (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -830,8 +830,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Siraatsu Castle (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Siraatsu Castle and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -852,8 +852,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Siraatsu Castle (Lower elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Siraatsu Castle, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Siraatsu Castle, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -874,8 +874,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Siraatsu Castle (Lower elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -896,8 +896,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Siraatsu Castle (Middle elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -918,8 +918,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Siraatsu Castle (Lower elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -940,8 +940,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Siraatsu Castle (Middle elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -962,8 +962,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Siraatsu Castle (Upper elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -984,8 +984,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Underworld (Upper elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Underworld and watch for the named crystal monument at the upper elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Underworld and watch for the named crystal monument at the upper elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1006,8 +1006,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Underworld (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Underworld and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Underworld and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1028,8 +1028,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Forgotten Dungeon (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Forgotten Dungeon and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Forgotten Dungeon and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1050,8 +1050,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Record of Sin (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Record of Sin and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Record of Sin and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1072,8 +1072,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Record of Sin (Upper elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Record of Sin and watch for the named crystal monument at the upper elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Record of Sin and watch for the named crystal monument at the upper elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1094,8 +1094,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Record of Sin (Lower elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Record of Sin, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Record of Sin, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1116,8 +1116,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Record of Sin (Upper elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -1138,8 +1138,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Rotting Cavern (Upper elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the upper elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the upper elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1160,8 +1160,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Rotting Cavern (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1182,8 +1182,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Rotting Cavern (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Rotting Cavern and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1204,8 +1204,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Rotting Cavern (Lower elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Rotting Cavern, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Rotting Cavern, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1226,8 +1226,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Verdant Hollow (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Verdant Hollow and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Verdant Hollow and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1248,8 +1248,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Verdant Hollow (Lower elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Verdant Hollow and watch for the named crystal monument at the lower elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Verdant Hollow and watch for the named crystal monument at the lower elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1270,8 +1270,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Verdant Hollow (Lower elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Verdant Hollow, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Verdant Hollow, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1292,8 +1292,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Verdant Hollow (Upper elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -1314,8 +1314,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Verdant Hollow (Upper elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {
@@ -1336,8 +1336,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Crystal Monument in Petrified Garden (Middle elevation).",
-      "howToFind": "Exact map coordinates are not verified yet. Use this list entry while exploring Petrified Garden and watch for the named crystal monument at the middle elevation.",
-      "tips": "Mark as found when you activate or collect it. Overview art and pins will be added after verification.",
+      "howToFind": "Use this list entry while exploring Petrified Garden and watch for the named crystal monument at the middle elevation. Use Mark as found when you clear it in-game.",
+      "tips": "Mark as found when you activate or collect it. Track progress with Mark as found.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1358,8 +1358,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": false,
       "summary": "Wing Altar for Petrified Garden (Middle elevation) — unlocks fast travel between discovered altars.",
-      "howToFind": "Exact coordinates are not verified yet. Look for the Wing Altar structure while exploring Petrified Garden, then activate it for the warp network.",
-      "tips": "Counts toward Well Travelled once marked. Pin placement comes after coordinate verification.",
+      "howToFind": "Look for the Wing Altar structure while exploring Petrified Garden, then activate it for the warp network. Use Mark as found when you clear it in-game.",
+      "tips": "Counts toward Well Travelled once marked.",
       "countsForWellTravelled": true,
       "sources": [
         {
@@ -1380,8 +1380,8 @@
       "verificationStatus": "secondary_source_only",
       "spoiler": true,
       "summary": "Possible boss encounter listed for Petrified Garden (Middle elevation). Confirm in your own playthrough.",
-      "howToFind": "Exact map pin is not verified yet. Treat this as a region checklist entry — explore carefully if you want to avoid spoilers elsewhere on the page.",
-      "tips": "Hidden from default filters. Turn on Possible Boss only when you want spoiler-tolerant tracking.",
+      "howToFind": "Explore this region carefully if you want the fight. Use Mark as found after you clear it.",
+      "tips": "Hidden from default filters. Enable Show possible bosses only when you want spoiler-tolerant tracking.",
       "countsForWellTravelled": false,
       "sources": [
         {

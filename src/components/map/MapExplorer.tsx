@@ -12,6 +12,7 @@ import {
   POI_TYPE_META,
 } from "@/lib/poi-meta";
 import { buildMapDeepLink, parseMapDeepLink } from "@/lib/map-deep-link";
+import { findNextMonument } from "@/lib/map-next";
 import { loadCheckedIds, saveCheckedIds } from "@/lib/storage";
 
 type MapExplorerProps = {
@@ -38,6 +39,7 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [hydrated, setHydrated] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const skipUrlSync = useRef(false);
   const deepLinkKey = searchParams.toString();
 
@@ -46,6 +48,11 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   useEffect(() => {
     setChecked(loadCheckedIds());
     setHydrated(true);
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const apply = () => setFiltersOpen(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
   }, []);
 
   useEffect(() => {
@@ -53,7 +60,6 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     saveCheckedIds(checked);
   }, [checked, hydrated]);
 
-  // Apply deep-link params whenever the query string changes.
   useEffect(() => {
     const link = parseMapDeepLink(searchParams);
     const targetPoi = link.poi
@@ -115,7 +121,6 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deepLinkKey, pois, regions]);
 
-  // Keep the address bar shareable — but leave bare `/` clean until the user focuses something.
   useEffect(() => {
     if (!hydrated || skipUrlSync.current) return;
 
@@ -202,8 +207,14 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
         (p.type === "crystal_monument" || p.type === "wing_altar"),
     );
     const done = trackable.filter((p) => checked.has(p.id)).length;
-    return { done, total: trackable.length };
+    return { done, total: trackable.length, remaining: trackable.length - done };
   }, [pois, checked]);
+
+  const nextMonument = useMemo(
+    () =>
+      findNextMonument(pois, region?.id ?? "", selected, checked),
+    [pois, region?.id, selected, checked],
+  );
 
   function toggleType(type: PoiType) {
     setSelectedTypes((prev) => {
@@ -236,46 +247,60 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
   const filterTypes = availableTypes.filter((t) => t !== "possible_boss");
 
   return (
-    <div
-      id="map-tool"
-      className="flex flex-1 flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:gap-0 lg:overflow-hidden lg:px-0 lg:py-0"
-    >
-      <aside className="flex w-full shrink-0 flex-col gap-4 border-stone-800 lg:w-80 lg:overflow-y-auto lg:border-r lg:p-4">
-        <div
-          className="rounded-lg border border-violet-900/50 bg-violet-950/30 px-3 py-2"
-          data-analytics="well-travelled"
-        >
-          <p className="text-xs uppercase tracking-wider text-violet-300/80">
-            Well Travelled checklist
+    <div id="map-tool" className="flex flex-1 flex-col">
+      {/* Progress above the map tool (P1) */}
+      <div
+        className="border-b border-stone-800 bg-violet-950/20 px-4 py-2 sm:px-6 lg:px-4"
+        data-analytics="well-travelled"
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-xs text-violet-200/90">
+            Well Travelled{" "}
+            <span className="font-mono text-violet-100">
+              {wellTravelled.done}/{wellTravelled.total}
+            </span>
+            {wellTravelled.remaining > 0 ? (
+              <span className="ml-2 text-stone-500">
+                · {wellTravelled.remaining} left
+              </span>
+            ) : (
+              <span className="ml-2 text-emerald-400">· complete on this list</span>
+            )}
           </p>
-          <p className="mt-1 font-mono text-lg text-violet-100">
-            {wellTravelled.done} / {wellTravelled.total}
-          </p>
-          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-stone-800">
-            <div
-              className="h-full rounded-full bg-violet-500 transition-all"
-              style={{
-                width: `${
-                  wellTravelled.total
-                    ? (wellTravelled.done / wellTravelled.total) * 100
-                    : 0
-                }%`,
-              }}
-            />
-          </div>
+          <button
+            type="button"
+            className="text-xs text-amber-600 underline-offset-2 hover:underline lg:hidden"
+            onClick={() => setFiltersOpen((v) => !v)}
+            aria-expanded={filtersOpen}
+          >
+            {filtersOpen ? "Hide filters" : "Filters & list"}
+          </button>
         </div>
+        <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-stone-800">
+          <div
+            className="h-full rounded-full bg-violet-500 transition-all"
+            style={{
+              width: `${
+                wellTravelled.total
+                  ? (wellTravelled.done / wellTravelled.total) * 100
+                  : 0
+              }%`,
+            }}
+          />
+        </div>
+      </div>
 
-        <label className="block text-sm">
-          <span className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-stone-500">
-            Region ({liveRegions.length})
-          </span>
+      {/* Always-visible region switch on mobile so filters can stay collapsed */}
+      <div className="flex items-center gap-2 border-b border-stone-800 px-4 py-2 lg:hidden">
+        <label className="flex min-w-0 flex-1 items-center gap-2 text-sm">
+          <span className="shrink-0 text-xs text-stone-500">Region</span>
           <select
             value={regionId}
             onChange={(e) => {
               setRegionId(e.target.value);
               setSelectedId(null);
             }}
-            className="w-full rounded-md border border-stone-700 bg-stone-950 px-3 py-2 text-stone-200 focus:border-amber-700 focus:outline-none focus:ring-1 focus:ring-amber-700"
+            className="min-w-0 flex-1 rounded-md border border-stone-700 bg-stone-950 px-2 py-1.5 text-stone-200 focus:border-amber-700 focus:outline-none focus:ring-1 focus:ring-amber-700"
           >
             {liveRegions.map((r) => (
               <option key={r.id} value={r.id}>
@@ -284,292 +309,301 @@ export function MapExplorer({ regions, pois }: MapExplorerProps) {
             ))}
           </select>
         </label>
+      </div>
 
-        <label className="block">
-          <span className="sr-only">Search markers</span>
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by name…"
-            className="w-full rounded-md border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-amber-700 focus:outline-none focus:ring-1 focus:ring-amber-700"
-          />
-        </label>
-
-        <fieldset>
-          <legend className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
-            Filter types
-          </legend>
-          <div className="flex flex-wrap gap-1.5">
-            {filterTypes.map((type) => {
-              const meta = POI_TYPE_META[type];
-              const on = selectedTypes.has(type);
-              return (
-                <button
-                  key={type}
-                  type="button"
-                  onClick={() => toggleType(type)}
-                  aria-pressed={on}
-                  className={`inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs transition ${
-                    on
-                      ? "border-stone-600 bg-stone-900 text-stone-200"
-                      : "border-stone-800 bg-transparent text-stone-600"
-                  }`}
-                >
-                  <span
-                    className="inline-block size-2 rounded-full"
-                    style={{ backgroundColor: on ? meta.color : "#44403c" }}
-                    aria-hidden
-                  />
-                  {meta.label}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
-            Elevation
-          </legend>
-          <div className="flex flex-wrap gap-1.5">
-            <button
-              type="button"
-              onClick={() => setElevationFilter("all")}
-              aria-pressed={elevationFilter === "all"}
-              className={`rounded-md border px-2 py-1 text-xs transition ${
-                elevationFilter === "all"
-                  ? "border-stone-600 bg-stone-900 text-stone-200"
-                  : "border-stone-800 bg-transparent text-stone-600"
-              }`}
-            >
-              All
-            </button>
-            {ALL_ELEVATIONS.map((elev) => {
-              const on = elevationFilter === elev;
-              return (
-                <button
-                  key={elev}
-                  type="button"
-                  onClick={() => setElevationFilter(elev)}
-                  aria-pressed={on}
-                  className={`rounded-md border px-2 py-1 text-xs transition ${
-                    on
-                      ? "border-stone-600 bg-stone-900 text-stone-200"
-                      : "border-stone-800 bg-transparent text-stone-600"
-                  }`}
-                >
-                  {ELEVATION_META[elev]}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        <label className="flex cursor-pointer items-start gap-2 rounded-md border border-stone-800 bg-stone-950/60 px-3 py-2 text-xs text-stone-400">
-          <input
-            type="checkbox"
-            checked={showBosses}
-            onChange={(e) => setShowBosses(e.target.checked)}
-            className="mt-0.5 size-4 rounded border-stone-600 bg-stone-900 text-red-600 focus:ring-red-700"
-          />
-          <span>
-            <span className="block font-medium text-stone-300">
-              Show possible bosses
-            </span>
-            <span className="mt-0.5 block text-stone-500">
-              Off by default to reduce spoilers. Names appear in the list only —
-              no fake map pins.
-            </span>
-          </span>
-        </label>
-
-        <div className="flex min-h-0 flex-1 flex-col">
-          <h2 className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
-            Locations ({regionPois.length})
-          </h2>
-          <ul className="max-h-64 space-y-1 overflow-y-auto lg:max-h-none lg:flex-1">
-            {regionPois.length === 0 && (
-              <li className="rounded-md border border-dashed border-stone-800 px-3 py-4 text-sm text-stone-500">
-                No locations match this filter.
-              </li>
-            )}
-            {regionPois.map((poi) => {
-              const meta = POI_TYPE_META[poi.type];
-              const isSelected = selectedId === poi.id;
-              const isChecked = checked.has(poi.id);
-              const mapped = isMappedPoi(poi);
-              return (
-                <li key={poi.id} id={`poi-list-${poi.id}`}>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedId(poi.id)}
-                    className={`flex w-full items-start gap-2 rounded-md border px-2.5 py-2 text-left text-sm transition ${
-                      isSelected
-                        ? "border-amber-700/70 bg-amber-950/40"
-                        : "border-transparent bg-stone-950/50 hover:border-stone-700 hover:bg-stone-900"
-                    }`}
-                  >
-                    <span
-                      className="mt-1.5 size-2.5 shrink-0 rounded-full"
-                      style={{ backgroundColor: meta.color }}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="block truncate font-medium text-stone-100">
-                        {poi.name}
-                        {isChecked ? (
-                          <span className="ml-1.5 text-xs text-emerald-400">✓</span>
-                        ) : null}
-                      </span>
-                      <span className="mt-0.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-stone-500">
-                        <span>{meta.label}</span>
-                        {poi.elevation ? (
-                          <span>{ELEVATION_META[poi.elevation]}</span>
-                        ) : null}
-                        {!mapped ? (
-                          <span className="text-amber-700/90">Unmapped</span>
-                        ) : null}
-                      </span>
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </aside>
-
-      <div className="flex min-w-0 flex-1 flex-col gap-3 p-0 lg:flex-row lg:gap-0">
-        <div className="relative min-h-[280px] flex-1 overflow-auto border-y border-stone-800 bg-[#12100e] lg:border-y-0">
-          {!hasMapArt ? (
-            <div className="flex h-full min-h-[280px] flex-col gap-4 p-4 sm:p-6">
-              <div className="rounded-md border border-stone-800 bg-stone-950/50 px-3 py-3">
-                <p className="text-sm font-medium text-stone-200">
-                  {region?.name ?? "This region"} checklist
+      <div className="flex flex-1 flex-col lg:flex-row lg:overflow-hidden">
+        {/* Map / checklist first on mobile */}
+        <div className="order-1 flex min-h-[55vh] min-w-0 flex-1 flex-col lg:order-2 lg:min-h-[60vh] lg:flex-row">
+          <div className="relative min-h-[55vh] flex-1 overflow-auto bg-[#12100e] lg:min-h-[60vh]">
+            {!hasMapArt ? (
+              <div className="flex h-full min-h-[55vh] flex-col gap-3 p-4 sm:p-5 lg:min-h-[60vh]">
+                <p className="text-sm text-stone-300">
+                  {region?.name ?? "Region"} location checklist
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-stone-500">
-                  Overview art and map pins are not available yet for this zone.
-                  Use the checklist below (or the sidebar list) to track Crystal
-                  Monuments, Wing Altars, and other locations — we only place pins
-                  after coordinates are verified.
+                <p className="text-xs text-stone-500">
+                  Tap a name to open How to find, then Mark as found when you clear
+                  it in-game.
                 </p>
+                <ul className="grid gap-2 sm:grid-cols-2">
+                  {regionPois.length === 0 ? (
+                    <li className="text-sm text-stone-500 sm:col-span-2">
+                      No locations match the current filters.
+                      {!showBosses
+                        ? " Open Filters if you need Possible Boss entries."
+                        : null}
+                    </li>
+                  ) : (
+                    regionPois.map((poi) => (
+                      <LocationRow
+                        key={poi.id}
+                        poi={poi}
+                        selected={selectedId === poi.id}
+                        checked={checked.has(poi.id)}
+                        onSelect={() => setSelectedId(poi.id)}
+                      />
+                    ))
+                  )}
+                </ul>
               </div>
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {regionPois.length === 0 ? (
-                  <li className="text-sm text-stone-500 sm:col-span-2">
-                    No locations match the current filters.
-                    {!showBosses
-                      ? " Turn on Show possible bosses if you are looking for boss entries."
-                      : null}
-                  </li>
-                ) : (
-                  regionPois.map((poi) => {
-                    const meta = POI_TYPE_META[poi.type];
-                    const isSelected = selectedId === poi.id;
-                    const isChecked = checked.has(poi.id);
-                    return (
-                      <li key={poi.id}>
-                        <button
-                          type="button"
-                          onClick={() => setSelectedId(poi.id)}
-                          className={`flex w-full items-start gap-2 rounded-md border px-3 py-2.5 text-left text-sm transition ${
-                            isSelected
-                              ? "border-amber-700/70 bg-amber-950/40"
-                              : "border-stone-800 bg-stone-950/40 hover:border-stone-700"
-                          }`}
-                        >
-                          <span
-                            className="mt-1 size-2.5 shrink-0 rounded-full"
-                            style={{ backgroundColor: meta.color }}
-                            aria-hidden
-                          />
-                          <span className="min-w-0 flex-1">
-                            <span className="block font-medium text-stone-100">
-                              {poi.name}
-                              {isChecked ? (
-                                <span className="ml-1.5 text-xs text-emerald-400">
-                                  ✓
-                                </span>
-                              ) : null}
-                            </span>
-                            <span className="mt-0.5 block text-xs text-stone-500">
-                              {meta.label}
-                              {poi.elevation
-                                ? ` · ${ELEVATION_META[poi.elevation]}`
-                                : ""}
-                            </span>
-                          </span>
-                        </button>
-                      </li>
-                    );
-                  })
-                )}
-              </ul>
-            </div>
-          ) : (
-            <div
-              className="relative mx-auto w-full"
-              style={{
-                maxWidth: region.mapWidth,
-                aspectRatio: `${region.mapWidth} / ${region.mapHeight}`,
+            ) : (
+              <div
+                className="relative mx-auto w-full"
+                style={{
+                  maxWidth: region.mapWidth,
+                  aspectRatio: `${region.mapWidth} / ${region.mapHeight}`,
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={region.mapImage}
+                  alt={`${region.name} overview map`}
+                  className="block h-auto w-full select-none"
+                  draggable={false}
+                  fetchPriority="high"
+                />
+                {mappedRegionPois.map((poi) => {
+                  const meta = POI_TYPE_META[poi.type];
+                  const isSelected = selectedId === poi.id;
+                  const isChecked = checked.has(poi.id);
+                  return (
+                    <button
+                      key={poi.id}
+                      type="button"
+                      title={poi.name}
+                      aria-label={`${poi.name}, ${meta.label}`}
+                      onClick={() => setSelectedId(poi.id)}
+                      className={`group absolute z-10 -translate-x-1/2 -translate-y-1/2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
+                        isSelected ? "z-20 scale-125" : "hover:scale-110"
+                      }`}
+                      style={{
+                        left: `${(poi.x as number) * 100}%`,
+                        top: `${(poi.y as number) * 100}%`,
+                      }}
+                    >
+                      <span
+                        className={`block size-3.5 rounded-full border-2 shadow-md sm:size-4 ${
+                          isSelected
+                            ? "border-amber-200"
+                            : isChecked
+                              ? "border-emerald-300"
+                              : "border-stone-950"
+                        }`}
+                        style={{ backgroundColor: meta.color }}
+                      />
+                      <span className="pointer-events-none absolute bottom-full left-1/2 mb-1 hidden -translate-x-1/2 whitespace-nowrap rounded bg-stone-950/95 px-1.5 py-0.5 text-[10px] text-stone-100 group-hover:block group-focus-visible:block">
+                        {poi.name}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <DetailPanel
+            poi={selected}
+            regionName={region?.name}
+            activated={selected ? checked.has(selected.id) : false}
+            onToggleActivated={() => selected && toggleActivated(selected.id)}
+            onClose={() => setSelectedId(null)}
+            nextMonument={nextMonument}
+            wellTravelledRemaining={wellTravelled.remaining}
+            onSelectNext={(id) => setSelectedId(id)}
+          />
+        </div>
+
+        {/* Filters / list — collapsed on phone by default */}
+        <aside
+          className={`order-2 w-full shrink-0 border-stone-800 lg:order-1 lg:flex lg:w-80 lg:flex-col lg:overflow-y-auto lg:border-r ${
+            filtersOpen ? "flex flex-col gap-3 border-t p-4" : "hidden lg:flex"
+          } lg:gap-4 lg:border-t-0 lg:p-4`}
+        >
+          <label className="block text-sm">
+            <span className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-stone-500">
+              Region
+            </span>
+            <select
+              value={regionId}
+              onChange={(e) => {
+                setRegionId(e.target.value);
+                setSelectedId(null);
               }}
+              className="w-full rounded-md border border-stone-700 bg-stone-950 px-3 py-2 text-stone-200 focus:border-amber-700 focus:outline-none focus:ring-1 focus:ring-amber-700"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={region.mapImage}
-                alt={`${region.name} overview map`}
-                className="block h-auto w-full select-none"
-                draggable={false}
-              />
-              {mappedRegionPois.map((poi) => {
-                const meta = POI_TYPE_META[poi.type];
-                const isSelected = selectedId === poi.id;
-                const isChecked = checked.has(poi.id);
+              {liveRegions.map((r) => (
+                <option key={r.id} value={r.id}>
+                  {r.name}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="block">
+            <span className="sr-only">Search markers</span>
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by name…"
+              className="w-full rounded-md border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200 placeholder:text-stone-600 focus:border-amber-700 focus:outline-none focus:ring-1 focus:ring-amber-700"
+            />
+          </label>
+
+          <fieldset>
+            <legend className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
+              Filter types
+            </legend>
+            <div className="flex flex-wrap gap-1.5">
+              {filterTypes.map((type) => {
+                const meta = POI_TYPE_META[type];
+                const on = selectedTypes.has(type);
                 return (
                   <button
-                    key={poi.id}
+                    key={type}
                     type="button"
-                    title={poi.name}
-                    aria-label={`${poi.name}, ${meta.label}`}
-                    onClick={() => setSelectedId(poi.id)}
-                    className={`group absolute z-10 -translate-x-1/2 -translate-y-1/2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
-                      isSelected ? "z-20 scale-125" : "hover:scale-110"
+                    onClick={() => toggleType(type)}
+                    aria-pressed={on}
+                    className={`inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs transition ${
+                      on
+                        ? "border-stone-600 bg-stone-900 text-stone-200"
+                        : "border-stone-800 bg-transparent text-stone-600"
                     }`}
-                    style={{
-                      left: `${(poi.x as number) * 100}%`,
-                      top: `${(poi.y as number) * 100}%`,
-                    }}
                   >
                     <span
-                      className={`block size-3.5 rounded-full border-2 shadow-md sm:size-4 ${
-                        isSelected
-                          ? "border-amber-200"
-                          : isChecked
-                            ? "border-emerald-300"
-                            : "border-stone-950"
-                      }`}
-                      style={{ backgroundColor: meta.color }}
+                      className="inline-block size-2 rounded-full"
+                      style={{ backgroundColor: on ? meta.color : "#44403c" }}
+                      aria-hidden
                     />
-                    <span className="pointer-events-none absolute bottom-full left-1/2 mb-1 hidden -translate-x-1/2 whitespace-nowrap rounded bg-stone-950/95 px-1.5 py-0.5 text-[10px] text-stone-100 group-hover:block group-focus-visible:block">
-                      {poi.name}
-                    </span>
+                    {meta.label}
                   </button>
                 );
               })}
             </div>
-          )}
-        </div>
+          </fieldset>
 
-        <DetailPanel
-          poi={selected}
-          regionName={region?.name}
-          activated={selected ? checked.has(selected.id) : false}
-          onToggleActivated={() => selected && toggleActivated(selected.id)}
-          onClose={() => setSelectedId(null)}
-        />
+          <fieldset>
+            <legend className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
+              Elevation
+            </legend>
+            <div className="flex flex-wrap gap-1.5">
+              <button
+                type="button"
+                onClick={() => setElevationFilter("all")}
+                aria-pressed={elevationFilter === "all"}
+                className={`rounded-md border px-2 py-1 text-xs transition ${
+                  elevationFilter === "all"
+                    ? "border-stone-600 bg-stone-900 text-stone-200"
+                    : "border-stone-800 bg-transparent text-stone-600"
+                }`}
+              >
+                All
+              </button>
+              {ALL_ELEVATIONS.map((elev) => {
+                const on = elevationFilter === elev;
+                return (
+                  <button
+                    key={elev}
+                    type="button"
+                    onClick={() => setElevationFilter(elev)}
+                    aria-pressed={on}
+                    className={`rounded-md border px-2 py-1 text-xs transition ${
+                      on
+                        ? "border-stone-600 bg-stone-900 text-stone-200"
+                        : "border-stone-800 bg-transparent text-stone-600"
+                    }`}
+                  >
+                    {ELEVATION_META[elev]}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <label className="flex cursor-pointer items-start gap-2 rounded-md border border-stone-800 bg-stone-950/60 px-3 py-2 text-xs text-stone-400">
+            <input
+              type="checkbox"
+              checked={showBosses}
+              onChange={(e) => setShowBosses(e.target.checked)}
+              className="mt-0.5 size-4 rounded border-stone-600 bg-stone-900 text-red-600 focus:ring-red-700"
+            />
+            <span>
+              <span className="block font-medium text-stone-300">
+                Show possible bosses
+              </span>
+              <span className="mt-0.5 block text-stone-500">
+                Off by default to reduce spoilers.
+              </span>
+            </span>
+          </label>
+
+          <div className="flex min-h-0 flex-1 flex-col">
+            <h2 className="mb-2 text-xs font-medium uppercase tracking-wider text-stone-500">
+              Locations ({regionPois.length})
+            </h2>
+            <ul className="max-h-56 space-y-1 overflow-y-auto lg:max-h-none lg:flex-1">
+              {regionPois.length === 0 && (
+                <li className="rounded-md border border-dashed border-stone-800 px-3 py-4 text-sm text-stone-500">
+                  No locations match this filter.
+                </li>
+              )}
+              {regionPois.map((poi) => (
+                <li key={poi.id} id={`poi-list-${poi.id}`}>
+                  <LocationRow
+                    poi={poi}
+                    selected={selectedId === poi.id}
+                    checked={checked.has(poi.id)}
+                    onSelect={() => setSelectedId(poi.id)}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
       </div>
     </div>
+  );
+}
+
+function LocationRow({
+  poi,
+  selected,
+  checked,
+  onSelect,
+}: {
+  poi: Poi;
+  selected: boolean;
+  checked: boolean;
+  onSelect: () => void;
+}) {
+  const meta = POI_TYPE_META[poi.type];
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className={`flex w-full items-start gap-2 rounded-md border px-2.5 py-2 text-left text-sm transition ${
+        selected
+          ? "border-amber-700/70 bg-amber-950/40"
+          : "border-stone-800 bg-stone-950/40 hover:border-stone-700 hover:bg-stone-900"
+      }`}
+    >
+      <span
+        className="mt-1.5 size-2.5 shrink-0 rounded-full"
+        style={{ backgroundColor: meta.color }}
+        aria-hidden
+      />
+      <span className="min-w-0 flex-1">
+        <span className="block truncate font-medium text-stone-100">
+          {poi.name}
+          {checked ? (
+            <span className="ml-1.5 text-xs text-emerald-400">✓</span>
+          ) : null}
+        </span>
+        <span className="mt-0.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-stone-500">
+          <span>{meta.label}</span>
+          {poi.elevation ? <span>{ELEVATION_META[poi.elevation]}</span> : null}
+        </span>
+      </span>
+    </button>
   );
 }
 
@@ -579,26 +613,34 @@ function DetailPanel({
   activated,
   onToggleActivated,
   onClose,
+  nextMonument,
+  wellTravelledRemaining,
+  onSelectNext,
 }: {
   poi: Poi | null;
   regionName?: string;
   activated: boolean;
   onToggleActivated: () => void;
   onClose: () => void;
+  nextMonument: Poi | null;
+  wellTravelledRemaining: number;
+  onSelectNext: (id: string) => void;
 }) {
   if (!poi) {
     return (
       <aside
         id="map-detail-panel"
-        className="w-full shrink-0 border-t border-stone-800 bg-[#0e0c0b] p-4 text-sm text-stone-500 lg:w-80 lg:overflow-y-auto lg:border-l lg:border-t-0"
+        className="flex w-full shrink-0 items-center justify-center border-t border-stone-800 bg-[#0e0c0b] p-6 text-center text-sm text-stone-500 lg:w-80 lg:overflow-y-auto lg:border-l lg:border-t-0"
       >
-        Select a location from the list or map to read details.
+        <p className="max-w-[16rem] leading-relaxed">
+          Tap a pin on the map or pick a location from the list to read How to
+          find.
+        </p>
       </aside>
     );
   }
 
   const meta = POI_TYPE_META[poi.type];
-  const mapped = isMappedPoi(poi);
 
   return (
     <aside
@@ -630,13 +672,6 @@ function DetailPanel({
         </button>
       </div>
 
-      {!mapped ? (
-        <p className="mb-3 rounded-md border border-amber-900/50 bg-amber-950/30 px-3 py-2 text-xs text-amber-100/90">
-          Location not precisely mapped yet — listed for checklist tracking only.
-          No map pin until coordinates are verified.
-        </p>
-      ) : null}
-
       <p className="text-sm text-stone-300">{poi.summary}</p>
 
       <section className="mt-4">
@@ -655,37 +690,6 @@ function DetailPanel({
         </section>
       ) : null}
 
-      <dl className="mt-4 grid grid-cols-2 gap-2 text-xs text-stone-500">
-        <div>
-          <dt className="uppercase tracking-wider">Coordinates</dt>
-          <dd className="mt-0.5 text-stone-300">
-            {mapped ? "Verified pin" : "Unverified"}
-          </dd>
-        </div>
-        <div>
-          <dt className="uppercase tracking-wider">Source status</dt>
-          <dd className="mt-0.5 text-stone-300">
-            {poi.verificationStatus === "community_verified"
-              ? "Community verified"
-              : "Secondary source"}
-          </dd>
-        </div>
-      </dl>
-
-      {poi.sources[0] ? (
-        <p className="mt-3 text-xs text-stone-600">
-          Source:{" "}
-          <a
-            href={poi.sources[0].url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-stone-500 underline-offset-2 hover:text-stone-300 hover:underline"
-          >
-            {poi.sources[0].label}
-          </a>
-        </p>
-      ) : null}
-
       <label className="mt-5 flex cursor-pointer items-center gap-2 rounded-md border border-stone-700 bg-stone-950 px-3 py-2 text-sm text-stone-200">
         <input
           type="checkbox"
@@ -695,6 +699,30 @@ function DetailPanel({
         />
         Mark as found
       </label>
+
+      <div className="mt-5 space-y-2 rounded-md border border-stone-800 bg-stone-950/50 px-3 py-3 text-sm">
+        {nextMonument ? (
+          <p className="text-stone-400">
+            Next Monument:{" "}
+            <button
+              type="button"
+              onClick={() => onSelectNext(nextMonument.id)}
+              className="font-medium text-amber-600 underline-offset-2 hover:text-amber-500 hover:underline"
+            >
+              {nextMonument.name}
+            </button>
+          </p>
+        ) : (
+          <p className="text-stone-500">
+            No unchecked Crystal Monuments left in this region.
+          </p>
+        )}
+        <p className="text-xs text-stone-500">
+          Well Travelled still needs{" "}
+          <span className="text-stone-300">{wellTravelledRemaining}</span> on
+          this guide.
+        </p>
+      </div>
     </aside>
   );
 }

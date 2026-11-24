@@ -126,7 +126,7 @@ export function LandingGuide({ page }: LandingGuideProps) {
                 </ul>
               ) : null}
             </div>
-            {index === 0 ? <AdRectangle className="mt-8" /> : null}
+            {index === 1 ? <AdRectangle className="mt-8" /> : null}
           </section>
         ))}
 

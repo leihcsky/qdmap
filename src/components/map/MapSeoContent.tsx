@@ -2,8 +2,10 @@ import Link from "next/link";
 import { AdRectangle } from "@/components/ads/AdRectangle";
 import { AdsterraNative } from "@/components/ads/AdsterraNative";
 import { PageFaq, type FaqItem } from "@/components/PageFaq";
-import { isMappedPoi, POI_TYPE_META } from "@/lib/poi-meta";
+import { POI_TYPE_META } from "@/lib/poi-meta";
 import type { Poi, PoiType, Region } from "@/lib/types";
+
+const FEATURED_REGION_IDS = new Set(["isle-of-neasied", "obmuer-temple"]);
 
 const MAP_FAQS: FaqItem[] = [
   {
@@ -52,8 +54,17 @@ type MapSeoContentProps = {
 
 export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
   const liveRegions = regions.filter((r) => r.status === "live");
+  const featuredRegions = liveRegions.filter((r) =>
+    FEATURED_REGION_IDS.has(r.id),
+  );
+  const checklistRegions = liveRegions.filter(
+    (r) => !FEATURED_REGION_IDS.has(r.id),
+  );
   // Omit possible_boss from public SEO legend/directory to reduce spoilers.
   const publicPois = pois.filter((p) => p.type !== "possible_boss");
+  const featuredPois = publicPois.filter((p) =>
+    FEATURED_REGION_IDS.has(p.regionId),
+  );
   const typesPresent = (Object.keys(POI_TYPE_META) as PoiType[]).filter(
     (type) =>
       type !== "possible_boss" && publicPois.some((p) => p.type === type),
@@ -70,13 +81,13 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           </h2>
           <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-relaxed text-stone-300">
             <li>
-              Choose a region from the list — Isle of Neasied and Obmuer Temple have
-              overview pins; other zones are list-first until coordinates are
-              verified.
+              Start on <span className="text-stone-100">Isle of Neasied</span> or{" "}
+              <span className="text-stone-100">Obmuer Temple</span> for overview
+              pins; other regions are available as checklists in the tool.
             </li>
             <li>
               Filter by type or elevation, search by name, then open a location from
-              the list (or a verified pin on the map).
+              the list or a pin on the map.
             </li>
             <li>
               Read <span className="text-stone-100">How to find</span> for compass
@@ -89,8 +100,6 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
             </li>
           </ol>
         </section>
-
-        <AdRectangle />
 
         <section aria-labelledby="no-map-mechanics" className="scroll-mt-8">
           <h2 id="no-map-mechanics" className="font-display text-2xl text-amber-50">
@@ -225,8 +234,6 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           </div>
         </section>
 
-        <AdsterraNative />
-
         <section aria-labelledby="marker-legend" className="scroll-mt-8">
           <h2 id="marker-legend" className="font-display text-2xl text-amber-50">
             Marker types on this map
@@ -265,13 +272,17 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
           </ul>
         </section>
 
+        {/* Ads only after the user has passed the interactive map + early guide copy. */}
+        <AdRectangle />
+        <AdsterraNative />
+
         <section aria-labelledby="region-guides" className="scroll-mt-8">
           <h2 id="region-guides" className="font-display text-2xl text-amber-50">
             Region guides
           </h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
-            {liveRegions.map((region) => {
-              const regionPois = publicPois.filter(
+            {featuredRegions.map((region) => {
+              const regionPois = featuredPois.filter(
                 (p) => p.regionId === region.id,
               );
               return (
@@ -287,7 +298,6 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
                   </p>
                   <p className="mt-3 text-xs uppercase tracking-wider text-stone-500">
                     Locations here ({regionPois.length})
-                    {!region.mapImage ? " · checklist (pins pending)" : ""}
                   </p>
                   <ul className="mt-2 space-y-1.5">
                     {regionPois.map((poi) => (
@@ -301,7 +311,6 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
                         <span className="text-stone-600">
                           {" "}
                           — {POI_TYPE_META[poi.type].label}
-                          {isMappedPoi(poi) ? "" : " · unmapped"}
                         </span>
                       </li>
                     ))}
@@ -310,18 +319,24 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
               );
             })}
           </div>
+          {checklistRegions.length > 0 ? (
+            <p className="mt-4 text-sm text-stone-500">
+              Also in the map tool as checklists:{" "}
+              {checklistRegions.map((r) => r.name).join(", ")}.
+            </p>
+          ) : null}
         </section>
 
         <section aria-labelledby="directory" className="scroll-mt-8">
           <h2 id="directory" className="font-display text-2xl text-amber-50">
-            All markers at a glance
+            Overview markers at a glance
           </h2>
           <p className="mt-2 text-sm text-stone-400">
-            Quick index of every point on this page. Open the tool above for full
-            How to find directions.
+            Quick index of Isle of Neasied and Obmuer Temple points. Open the tool
+            above for full How to find directions and other region checklists.
           </p>
           <ol className="mt-4 columns-1 gap-x-8 space-y-2 sm:columns-2">
-            {publicPois.map((poi) => {
+            {featuredPois.map((poi) => {
               const regionName =
                 regions.find((r) => r.id === poi.regionId)?.name ?? poi.regionId;
               return (
@@ -332,8 +347,7 @@ export function MapSeoContent({ regions, pois }: MapSeoContentProps) {
                   <span className="font-medium text-stone-100">{poi.name}</span>
                   <span className="text-stone-500">
                     {" "}
-                    ({POI_TYPE_META[poi.type].label}, {regionName}
-                    {isMappedPoi(poi) ? "" : ", unmapped"})
+                    ({POI_TYPE_META[poi.type].label}, {regionName})
                   </span>
                   <span className="mt-0.5 block text-stone-500">{poi.summary}</span>
                 </li>
@@ -425,10 +439,10 @@ function regionBlurb(regionId: string): string {
     case "obmuer-temple":
       return "Sunken temple after Neasied. Cave Entrance, Sacred Cistern, and Prison Corridor monuments break up slate and key puzzles — save before long corridor runs.";
     case "deimpo-mausoleum":
-      return "Interior mausoleum checklist (list-first). The exterior front landmark still lives on the Isle of Neasied overview.";
+      return "Interior mausoleum checklist. The exterior front landmark still lives on the Isle of Neasied overview.";
     case "tower-of-knowledge":
-      return "List-first coverage for monuments, Wing Altar, and Wind Gem routes. Pins arrive after coordinates are verified.";
+      return "Checklist coverage for monuments, Wing Altar, and Wind Gem routes in the map tool.";
     default:
-      return "List-first region: browse named locations and mark progress locally. Overview art and pins are added after coordinates are verified.";
+      return "Available as a checklist in the map tool — browse named locations and mark progress locally.";
   }
 }
